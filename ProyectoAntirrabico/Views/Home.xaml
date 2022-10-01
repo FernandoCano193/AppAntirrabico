@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoAntirrabico.Views.Home"
+            xmlns:Local="clr-namespace:ProyectoAntirrabico.Views.Listas"
+            BarBackgroundColor="#3C4562"
+            SelectedTabColor="#F18043"
+            UnselectedTabColor="White"
+            NavigationPage.HasNavigationBar="False">
+
+    <!--Pages can be added as references or inline-->
+    <Local:ListaPerdidas Title="Busqueda" IconImageSource="searchSelect.png" />
+    <Local:ListaAdopcion Title="Adopción" IconImageSource="adopcionSelect.png"/>
+</TabbedPage>

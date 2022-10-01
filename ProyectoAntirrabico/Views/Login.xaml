@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ValidarInternet="clr-namespace:ProyectoAntirrabico.Views.ValidarInternet"
+             x:Class="ProyectoAntirrabico.Views.Login"
+             NavigationPage.HasNavigationBar="False">
+
+    <StackLayout>
+
+        <StackLayout IsVisible="{Binding Conectado}">
+
+            <StackLayout BackgroundColor="White" HeightRequest="900">
+                <Image Source="logo.png"
+                   HeightRequest="350"/>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand"
+                         Margin="0,10,0,0">
+                    <Image Source="user.png"
+                       HeightRequest="40"
+                       />
+                    <Entry Placeholder="Correo"
+                       PlaceholderColor="Gray"
+                       Text="{Binding txtCorreo}"
+                       WidthRequest="300"
+                       FontSize="20"
+                       TextColor="#3C4562"
+                       HorizontalTextAlignment="Start"
+                       HorizontalOptions="CenterAndExpand">
+                        <Entry.Triggers>
+                            <Trigger TargetType="Entry"
+                                 Property="IsFocused" Value="true">
+                                <Setter Property="Placeholder" Value=""/>
+                            </Trigger>
+                        </Entry.Triggers>
+                    </Entry>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand"
+                         Margin="0,20,0,0">
+                    <Image Source="lock.png"
+                       HeightRequest="40"/>
+
+                    <Entry Placeholder="Contraseña"
+                       PlaceholderColor="Gray"
+                       Text="{Binding txtContraseña}"
+                       WidthRequest="300"
+                       FontSize="20"
+                       TextColor="#3C4562"
+                       IsPassword="True"
+                       HorizontalTextAlignment="Start"
+                       HorizontalOptions="CenterAndExpand">
+                        <Entry.Triggers>
+                            <Trigger TargetType="Entry"
+                                 Property="IsFocused" Value="true">
+                                <Setter Property="Placeholder" Value=""/>
+                            </Trigger>
+                        </Entry.Triggers>
+                    </Entry>
+                </StackLayout>
+
+                <StackLayout Margin="0,100,0,0">
+
+                    <Button Text="Iniciar sesión"
+                    TextColor="#F18043"
+                    FontSize="16"
+                    CharacterSpacing="0.5"
+                    BackgroundColor="#3C4562"
+                    HorizontalOptions="Center"
+                    WidthRequest="200"
+                    CornerRadius="10"
+                    Command="{Binding Logincommand}"/>
+
+                    <Button Text="Registrarse"
+                    TextColor="#F18043"
+                    FontSize="16"
+                    CharacterSpacing="0.5"
+                    BackgroundColor="White"
+                    HorizontalOptions="Center"
+                    BorderColor="#F18043"
+                    BorderWidth="3"
+                    WidthRequest="200"
+                    CornerRadius="10"
+                    Margin="10"
+                    Command="{Binding IrRegistrocommand}"/>
+
+                </StackLayout>
+            </StackLayout>
+
+        </StackLayout>
+
+        <ValidarInternet:ValidacionesInternet IsVisible="{Binding SinConexion}" VerticalOptions="FillAndExpand"/>
+
+    </StackLayout>
+</ContentPage>

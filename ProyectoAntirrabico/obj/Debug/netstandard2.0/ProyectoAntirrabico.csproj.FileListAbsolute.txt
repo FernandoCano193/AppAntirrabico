@@ -1,0 +1,66 @@
+D:\Proyecto\ProyectoAntirrabico\ProyectoAntirrabico\bin\Debug\netstandard2.0\ProyectoAntirrabico.deps.json
+D:\Proyecto\ProyectoAntirrabico\ProyectoAntirrabico\bin\Debug\netstandard2.0\ProyectoAntirrabico.dll
+D:\Proyecto\ProyectoAntirrabico\ProyectoAntirrabico\bin\Debug\netstandard2.0\ProyectoAntirrabico.pdb
+D:\Proyecto\ProyectoAntirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\ProyectoAntirrabico.csproj.AssemblyReference.cache
+D:\Proyecto\ProyectoAntirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\ProyectoAntirrabico.GeneratedMSBuildEditorConfig.editorconfig
+D:\Proyecto\ProyectoAntirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\App.xaml.g.cs
+D:\Proyecto\ProyectoAntirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+D:\Proyecto\ProyectoAntirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\Views\InsercionMascotas.xaml.g.cs
+D:\Proyecto\ProyectoAntirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\ProyectoAntirrabico.AssemblyInfoInputs.cache
+D:\Proyecto\ProyectoAntirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\ProyectoAntirrabico.AssemblyInfo.cs
+D:\Proyecto\ProyectoAntirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\ProyectoAntirrabico.csproj.CoreCompileInputs.cache
+D:\Proyecto\ProyectoAntirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\XamlC.stamp
+D:\Proyecto\ProyectoAntirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\ProyectoAntirrabico.dll
+D:\Proyecto\ProyectoAntirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\refint\ProyectoAntirrabico.dll
+D:\Proyecto\ProyectoAntirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\ProyectoAntirrabico.pdb
+D:\Proyecto\ProyectoAntirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\ref\ProyectoAntirrabico.dll
+C:\Users\Fernando Cano\Documents\Semestre 6\Antirrabico\ProyectoAntirrabico\bin\Debug\netstandard2.0\ProyectoAntirrabico.deps.json
+C:\Users\Fernando Cano\Documents\Semestre 6\Antirrabico\ProyectoAntirrabico\bin\Debug\netstandard2.0\ProyectoAntirrabico.dll
+C:\Users\Fernando Cano\Documents\Semestre 6\Antirrabico\ProyectoAntirrabico\bin\Debug\netstandard2.0\ProyectoAntirrabico.pdb
+C:\Users\Fernando Cano\Documents\Semestre 6\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\ProyectoAntirrabico.csproj.AssemblyReference.cache
+C:\Users\Fernando Cano\Documents\Semestre 6\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\ProyectoAntirrabico.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Fernando Cano\Documents\Semestre 6\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\Fernando Cano\Documents\Semestre 6\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\ProyectoAntirrabico.AssemblyInfoInputs.cache
+C:\Users\Fernando Cano\Documents\Semestre 6\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\ProyectoAntirrabico.AssemblyInfo.cs
+C:\Users\Fernando Cano\Documents\Semestre 6\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\ProyectoAntirrabico.csproj.CoreCompileInputs.cache
+C:\Users\Fernando Cano\Documents\Semestre 6\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\Fernando Cano\Documents\Semestre 6\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\ProyectoAntirrabico.dll
+C:\Users\Fernando Cano\Documents\Semestre 6\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\refint\ProyectoAntirrabico.dll
+C:\Users\Fernando Cano\Documents\Semestre 6\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\ProyectoAntirrabico.pdb
+C:\Users\Fernando Cano\Documents\Semestre 6\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\ref\ProyectoAntirrabico.dll
+C:\Users\Fernando Cano\Documents\Semestre 6\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\Views\FormMascotasPerdidas.xaml.g.cs
+C:\Users\Fernando Cano\Documents\Semestre 6\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\Views\FormRegistroAdmin.xaml.g.cs
+C:\Users\Fernando Cano\Documents\Semestre 6\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\Views\Login.xaml.g.cs
+C:\Users\Fernando Cano\Documents\Semestre 6\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\Views\FormMascotasAdopcion.xaml.g.cs
+C:\Users\Fernando Cano\Documents\Semestre 6\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\Views\ListaMascotasPerdidas.xaml.g.cs
+C:\Users\Fernando Cano\Documents\Semestre 6\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\Views\ListaMascotasAdopcion.xaml.g.cs
+C:\Users\Fernando Cano\Documents\Semestre 6\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\Views\Home.xaml.g.cs
+C:\Users\Fernando Cano\Documents\Semestre 6\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\Views\HomeAdmin.xaml.g.cs
+C:\Users\Fernando Cano\Documents\Semestre 6\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\Views\Listas\ListaAdopcion.xaml.g.cs
+C:\Users\Fernando Cano\Documents\Semestre 6\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\Views\Listas\ListaPerdidas.xaml.g.cs
+C:\Users\Fernando Cano\Documents\Semestre 6\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\Views\ValidarInternet\ValidacionesInternet.xaml.g.cs
+C:\Antirrabico\Antirrabico\ProyectoAntirrabico\bin\Debug\netstandard2.0\ProyectoAntirrabico.deps.json
+C:\Antirrabico\Antirrabico\ProyectoAntirrabico\bin\Debug\netstandard2.0\ProyectoAntirrabico.dll
+C:\Antirrabico\Antirrabico\ProyectoAntirrabico\bin\Debug\netstandard2.0\ProyectoAntirrabico.pdb
+C:\Antirrabico\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\ProyectoAntirrabico.csproj.AssemblyReference.cache
+C:\Antirrabico\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\ProyectoAntirrabico.GeneratedMSBuildEditorConfig.editorconfig
+C:\Antirrabico\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Antirrabico\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\Views\FormMascotasAdopcion.xaml.g.cs
+C:\Antirrabico\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\Views\FormMascotasPerdidas.xaml.g.cs
+C:\Antirrabico\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\Views\FormRegistroAdmin.xaml.g.cs
+C:\Antirrabico\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\Views\Home.xaml.g.cs
+C:\Antirrabico\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\Views\HomeAdmin.xaml.g.cs
+C:\Antirrabico\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\Views\ListaMascotasAdopcion.xaml.g.cs
+C:\Antirrabico\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\Views\ListaMascotasPerdidas.xaml.g.cs
+C:\Antirrabico\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\Views\Listas\ListaAdopcion.xaml.g.cs
+C:\Antirrabico\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\Views\Listas\ListaPerdidas.xaml.g.cs
+C:\Antirrabico\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\Views\Login.xaml.g.cs
+C:\Antirrabico\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\Views\ValidarInternet\ValidacionesInternet.xaml.g.cs
+C:\Antirrabico\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\ProyectoAntirrabico.AssemblyInfoInputs.cache
+C:\Antirrabico\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\ProyectoAntirrabico.AssemblyInfo.cs
+C:\Antirrabico\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\ProyectoAntirrabico.csproj.CoreCompileInputs.cache
+C:\Antirrabico\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Antirrabico\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\ProyectoAntirrabico.dll
+C:\Antirrabico\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\refint\ProyectoAntirrabico.dll
+C:\Antirrabico\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\ProyectoAntirrabico.pdb
+C:\Antirrabico\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\ref\ProyectoAntirrabico.dll

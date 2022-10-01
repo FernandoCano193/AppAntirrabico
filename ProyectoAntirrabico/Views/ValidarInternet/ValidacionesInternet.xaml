@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoAntirrabico.Views.ValidarInternet.ValidacionesInternet"
+             xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms">
+
+    <StackLayout VerticalOptions="Center">
+
+        <lottie:AnimationView Animation="AnimacionPerro.json"
+                              AutoPlay="True"
+                              HeightRequest="250"
+                              WidthRequest="300"
+                              RepeatMode="Infinite"
+                              VerticalOptions="Center">
+            
+        </lottie:AnimationView>
+        
+        <Label Text="Sin conexión a Internet"
+               FontSize="30"
+               VerticalOptions="Center"
+               VerticalTextAlignment="Center"
+               HorizontalOptions="Center"
+               HorizontalTextAlignment="Center"
+               FontAttributes="Bold"
+               TextColor="Gray"/>
+        
+    </StackLayout>
+</ContentView>

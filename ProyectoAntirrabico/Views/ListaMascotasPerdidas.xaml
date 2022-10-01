@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoAntirrabico.Views.ListaMascotasPerdidas"
+             xmlns:ValidarInternet="clr-namespace:ProyectoAntirrabico.Views.ValidarInternet"
+             NavigationPage.HasNavigationBar="False"
+             Title="Busqueda">
+
+    <StackLayout BackgroundColor="#F5F5F5">
+
+        <StackLayout IsVisible="{Binding Conectado}">
+            
+            <StackLayout Orientation="Horizontal" VerticalOptions="Start"
+                     BackgroundColor="White">
+
+                <Image Source="logoAjustado.png"
+                   HeightRequest="80"
+                   HorizontalOptions="StartAndExpand"
+                   VerticalOptions="Center"
+                   Margin="20,0,0,0"/>
+
+                <Frame HasShadow="False"
+                   BorderColor="#3C4562"
+                   CornerRadius="50"
+                   HorizontalOptions="End"
+                   VerticalOptions="Center"
+                   HeightRequest="40"
+                   WidthRequest="40"
+                   BackgroundColor="#C4C4C4"
+                   Padding="0"
+                   Margin="15">
+
+                    <StackLayout VerticalOptions="Center">
+                        <Image Source="user.png"
+                           WidthRequest="25"/>
+                    </StackLayout>
+
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding IrLogincommand}"/>
+                    </Frame.GestureRecognizers>
+
+                </Frame>
+            </StackLayout>
+
+            <Grid VerticalOptions="FillAndExpand" BackgroundColor="#F5F5F5"
+              Margin="10,0,10,0">
+
+                <CollectionView ItemsSource="{Binding ListaMP}" Margin="5">
+
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical"
+                                     Span="2"
+                                     HorizontalItemSpacing="15"
+                                     VerticalItemSpacing="12"/>
+                    </CollectionView.ItemsLayout>
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame BackgroundColor="White"
+                               HeightRequest="330"
+                               CornerRadius="10"
+                               Padding="0"
+                               HasShadow="False"
+                               Margin="10">
+
+                                <StackLayout>
+                                    <Frame Margin="10,10,10,0"
+                                       Padding="0"
+                                       HasShadow="False"
+                                       CornerRadius="10"
+                                       HeightRequest="120">
+                                        <Image Source="{Binding LinkFoto}"
+                                               HeightRequest="125"
+                                               HorizontalOptions="Center"
+                                               Aspect="AspectFill"/>
+                                    </Frame>
+                                    <Label Text="{Binding Raza}"
+                                       TextColor="Black"
+                                       FontAttributes="Bold"
+                                       FontSize="22"
+                                       HorizontalOptions="Center"
+                                       CharacterSpacing="1"/>
+                                    <Label Text="{Binding Edad}"
+                                       TextColor="Gray"
+                                       FontSize="18"
+                                       HorizontalOptions="Center"/>
+                                    <Label Text="{Binding Sexo}"
+                                       TextColor="Gray"
+                                       FontSize="18"
+                                       HorizontalOptions="Center"
+                                       Margin="0,-5,0,0"/>
+                                    <Label Text="{Binding Area}"
+                                       TextColor="Gray"
+                                       FontSize="16"
+                                       HorizontalOptions="Center"
+                                       Margin="0,-5,0,0"
+                                       HorizontalTextAlignment="Center"/>
+
+                                    <StackLayout Orientation="Horizontal"
+                                             Margin="10" 
+                                             HorizontalOptions="Center">
+                                        <Frame BackgroundColor="#0984e3"
+                                           HeightRequest="30"
+                                           Padding="5"
+                                           CornerRadius="5"
+                                           Margin="0,0,10,0">
+                                            <Image Source="https://i.ibb.co/2g2Yztc/edit.png"
+                                               VerticalOptions="Center"
+                                               HorizontalOptions="Center"
+                                            />
+
+                                            <Frame.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding IrEditar}"/>
+                                            </Frame.GestureRecognizers>
+
+                                        </Frame>
+                                        <Frame BackgroundColor="#d63031"
+                                           HeightRequest="30"
+                                           Padding="5"
+                                           CornerRadius="5">
+                                            <Image Source="https://i.ibb.co/ph9JNn1/delete.png"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="Center"/>
+                                        </Frame>
+                                    </StackLayout>
+
+                                </StackLayout>
+
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <!--<ScrollView>
+                <Grid ColumnDefinitions="*,*">
+                    <StackLayout x:Name="Izquierda" Grid.Column="0">
+                        -->
+                <!--<Frame BackgroundColor="White"
+                               HeightRequest="330"
+                               CornerRadius="10"
+                               Padding="0"
+                               HasShadow="False"
+                               Margin="10">
+
+                            <StackLayout>
+                                <Frame Margin="10,5,10,0"
+                                       Padding="0"
+                                       HasShadow="False"
+                                       CornerRadius="10"
+                                       HeightRequest="125">
+                                    <Image Source="https://i.ibb.co/SdHL1Nd/husky-siberiano-redes.jpg"
+                                       HeightRequest="125"
+                                       HorizontalOptions="Center"
+                                       />
+                                </Frame>
+                                <Label Text="Duquesa"
+                                       TextColor="Black"
+                                       FontAttributes="Bold"
+                                       FontSize="22"
+                                       HorizontalOptions="Center"
+                                       CharacterSpacing="1"/>
+                                <Label Text="3 años"
+                                       TextColor="Gray"
+                                       FontSize="18"
+                                       HorizontalOptions="Center"/>
+                                <Label Text="Hembra"
+                                       TextColor="Gray"
+                                       FontSize="18"
+                                       HorizontalOptions="Center"
+                                       Margin="0,-5,0,0"/>
+                                <Label Text="Localizada en Tijuana"
+                                       TextColor="Gray"
+                                       FontSize="16"
+                                       HorizontalOptions="Center"
+                                       Margin="0,-5,0,0"
+                                       HorizontalTextAlignment="Center"/>
+
+                                <StackLayout Orientation="Horizontal"
+                                             Margin="10" 
+                                             HorizontalOptions="Center">
+                                    <Frame BackgroundColor="#0984e3"
+                                           HeightRequest="30"
+                                           Padding="5"
+                                           CornerRadius="5"
+                                           Margin="0,0,10,0">
+                                        <Image 
+                                           Source="https://i.ibb.co/2g2Yztc/edit.png"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="Center"/>
+
+                                    </Frame>
+                                    <Frame BackgroundColor="#d63031"
+                                           HeightRequest="30"
+                                           Padding="5"
+                                           CornerRadius="5">
+                                        <Image Source="https://i.ibb.co/ph9JNn1/delete.png"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="Center"/>
+                                    </Frame>
+                                </StackLayout>
+
+                            </StackLayout>
+
+                        </Frame>-->
+                <!--
+                    </StackLayout>
+                    <StackLayout x:Name="Derecha" Grid.Column="1">
+
+                    </StackLayout>
+                </Grid>
+            </ScrollView>-->
+
+                <Image Source="add.png"
+                   VerticalOptions="End"
+                   HorizontalOptions="End"
+                   HeightRequest="70"
+                   Margin="20,20">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding IrFormMPcommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </Grid>
+            
+        </StackLayout>
+
+        <ValidarInternet:ValidacionesInternet IsVisible="{Binding SinConexion}" VerticalOptions="FillAndExpand"/>
+
+    </StackLayout>
+</ContentPage>
