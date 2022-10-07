@@ -59,7 +59,7 @@ namespace ProyectoAntirrabico.Data
         public async Task<string> SubirFotoStorage(Stream FotoStream, string IdAdmin)
         {
             var FotoAlmacenada = await CConexion.storage.Child("Administradores")
-                .Child(IdAdmin+".jpg")
+                .Child(IdAdmin + ".jpg")
                 .PutAsync(FotoStream);
 
             rutaFoto = FotoAlmacenada;

@@ -11,6 +11,8 @@ using Plugin.Media.Abstractions;
 using ProyectoAntirrabico.Views;
 using ProyectoAntirrabico.Model;
 using ProyectoAntirrabico.Data;
+using Plugin.Media;
+using System.Diagnostics;
 
 namespace ProyectoAntirrabico.ViewModel
 {
@@ -24,7 +26,7 @@ namespace ProyectoAntirrabico.ViewModel
         string _Contraseña;
         string _LinkFoto;
 
-        ImageSource _foto;
+        ImageSource _foto = "https://i.ibb.co/6sTPt9y/user-logo.png";
 
         MediaFile file;
         string RutaFoto;
@@ -121,21 +123,68 @@ namespace ProyectoAntirrabico.ViewModel
             var parametros = new MAdmistradores();
 
             //Se asignan los valores de los objetos
+
+            parametros.LinkFoto = "-";
             parametros.Apellidos = txtApellidos;
             parametros.Nombres = txtNombres;
             parametros.Area = SeleccionArea;
-            parametros.LinkFoto = txtLinkFoto;
             parametros.Contraseña = txtContraseña;
             parametros.Correo = txtCorreo;
 
-            await funcion.InsertarAdmin(parametros);
+            IdAdministrador = await funcion.InsertarAdmin(parametros);
         }
+
+        public async Task SubirImagen()
+        {
+            var funcion = new DAdministradores();
+            RutaFoto = await funcion.SubirFotoStorage(file.GetStream(), IdAdministrador);
+        }
+
+        public async Task AgregarFoto()
+        {
+            await CrossMedia.Current.Initialize();
+            try
+            {
+                file = await CrossMedia.Current.PickPhotoAsync(new PickMediaOptions()
+                {
+                    PhotoSize = PhotoSize.Medium
+                });
+                if (file == null)
+                    return;
+                FotoCelular = ImageSource.FromStream(() =>
+                {
+                    var RutaFoto = file.GetStream();
+                    return RutaFoto;
+                });
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+        }
+
+        public async Task EditarFoto()
+        {
+            var funcion = new DAdministradores();
+            var parametros = new MAdmistradores();
+
+            parametros.LinkFoto = RutaFoto;
+            parametros.IdAdministrador = IdAdministrador;
+            parametros.Nombres = txtNombres;
+            parametros.Area = txtArea;
+            parametros.Contraseña = txtContraseña;
+            parametros.Apellidos = txtApellidos;
+            parametros.Correo = txtCorreo;
+
+            await funcion.EditarFoto(parametros);
+        }
+
+
 
         public async Task Registrar()
         {
             //Validaciones para el usuario y contraseña
-            if (string.IsNullOrEmpty(this._Nombres) || (string.IsNullOrEmpty(this._Apellidos) || (string.IsNullOrEmpty(this._LinkFoto) 
-                || (string.IsNullOrEmpty(this.SeleccionArea)))))
+            if (string.IsNullOrEmpty(this._Nombres) || (string.IsNullOrEmpty(this._Apellidos) || (string.IsNullOrEmpty(this.SeleccionArea))))
             {
                 await Application.Current.MainPage.DisplayAlert(
                     "Error", "Debe de llenar todos los campos vacíos", "Aceptar"
@@ -159,6 +208,8 @@ namespace ProyectoAntirrabico.ViewModel
 
             CrearAutenticacion();
             await InsertarAdmin();
+            await SubirImagen();
+            await EditarFoto();
             
 
             await DisplayAlert("Listo","Se ha insertado el nuevo admin","Ok");
@@ -180,6 +231,7 @@ namespace ProyectoAntirrabico.ViewModel
         #endregion
         #region COMANDOS
         public ICommand Registrarcommand => new Command(async () => await Registrar());
+        public ICommand AgregarFotocommand => new Command(async () => await AgregarFoto());
         public ICommand Cancelarcommand => new Command(Cancelar);
 
         #endregion

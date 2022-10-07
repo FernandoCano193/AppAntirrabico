@@ -35,7 +35,7 @@
 
                     <StackLayout>
 
-                        <Image Source="https://i.ibb.co/6sTPt9y/user-logo.png"
+                        <Image Source="{Binding FotoCelular}"
                                HeightRequest="100"
                                Margin="0,10,0,0"
                                x:Name="FotoCelular"
@@ -56,7 +56,7 @@
                                     CornerRadius="10"
                                     HeightRequest="45"
                                     Margin="40,0,0,0"
-                                    Clicked="btnSeleccionarFoto_Clicked"/>
+                                    Command="{Binding AgregarFotocommand}"/>
 
                             <Frame BackgroundColor="#F18043"
                                Padding="5"
