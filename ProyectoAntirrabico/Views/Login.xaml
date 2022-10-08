@@ -19,13 +19,13 @@
                        HeightRequest="40"
                        />
                     <Entry Placeholder="Correo"
-                       PlaceholderColor="Gray"
-                       Text="{Binding txtCorreo}"
-                       WidthRequest="300"
-                       FontSize="20"
-                       TextColor="#3C4562"
-                       HorizontalTextAlignment="Start"
-                       HorizontalOptions="CenterAndExpand">
+                           PlaceholderColor="Gray"
+                           Text="{Binding txtCorreo}"
+                           WidthRequest="280"
+                           FontSize="20"
+                           TextColor="#3C4562"
+                           HorizontalTextAlignment="Center"
+                           HorizontalOptions="CenterAndExpand">
                         <Entry.Triggers>
                             <Trigger TargetType="Entry"
                                  Property="IsFocused" Value="true">
@@ -34,6 +34,12 @@
                         </Entry.Triggers>
                     </Entry>
                 </StackLayout>
+                <Frame BackgroundColor="Gray" 
+                       Padding="0" 
+                       HeightRequest="1" 
+                       WidthRequest="350" 
+                       HorizontalOptions="Center">
+                </Frame>
 
                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand"
                          Margin="0,20,0,0">
@@ -43,11 +49,11 @@
                     <Entry Placeholder="Contraseña"
                        PlaceholderColor="Gray"
                        Text="{Binding txtContraseña}"
-                       WidthRequest="300"
+                       WidthRequest="280"
                        FontSize="20"
                        TextColor="#3C4562"
                        IsPassword="True"
-                       HorizontalTextAlignment="Start"
+                       HorizontalTextAlignment="Center"
                        HorizontalOptions="CenterAndExpand">
                         <Entry.Triggers>
                             <Trigger TargetType="Entry"
@@ -57,6 +63,13 @@
                         </Entry.Triggers>
                     </Entry>
                 </StackLayout>
+                <Frame BackgroundColor="Gray" 
+                       Padding="0" 
+                       HeightRequest="1" 
+                       WidthRequest="350" 
+                       HorizontalOptions="Center">
+                </Frame>
+
 
                 <StackLayout Margin="0,100,0,0">
 

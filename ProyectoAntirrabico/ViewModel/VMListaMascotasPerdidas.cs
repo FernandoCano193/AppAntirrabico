@@ -201,9 +201,15 @@ namespace ProyectoAntirrabico.ViewModel
             //    _index++;
             //}
         }
+        public async Task IrLogin()
+        {
+            await Navigation.PushAsync(new Login());
+        }
+
         #endregion
         #region COMANDOS
         public ICommand IrListaMAcommand => new Command(async () => await IrListaMascotasAdopcion());
+        public ICommand IrLogincommand => new Command(async () => await IrLogin());
         public ICommand IrFormMPcommand => new Command(async () => await IrFormMascotasPerdidas());
         public ICommand IrEditar => new Command(async () => await Editar());
         #endregion

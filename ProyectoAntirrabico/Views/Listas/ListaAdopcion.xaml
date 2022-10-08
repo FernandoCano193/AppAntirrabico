@@ -6,18 +6,20 @@
              xmlns:ValidarInternet="clr-namespace:ProyectoAntirrabico.Views.ValidarInternet"
              Title="ListaAdopcion">
 
-    <StackLayout BackgroundColor="#F5F5F5">
+    <StackLayout>
 
-        <StackLayout Orientation="Horizontal" VerticalOptions="Start"
-                     BackgroundColor="White" IsVisible="{Binding Conectado}">
+        <StackLayout BackgroundColor="#F5F5F5" IsVisible="{Binding Conectado}">
 
-            <Image Source="logoAjustado.png"
+            <StackLayout Orientation="Horizontal" VerticalOptions="Start"
+                     BackgroundColor="White">
+
+                <Image Source="logoAjustado.png"
                    HeightRequest="80"
                    HorizontalOptions="StartAndExpand"
                    VerticalOptions="Center"
                    Margin="20,0,0,0"/>
 
-            <Frame HasShadow="False"
+                <Frame HasShadow="False"
                    BorderColor="#3C4562"
                    CornerRadius="50"
                    HorizontalOptions="End"
@@ -28,94 +30,100 @@
                    Padding="0"
                    Margin="15">
 
-                <StackLayout VerticalOptions="Center">
-                    <Image Source="user.png"
+                    <StackLayout VerticalOptions="Center">
+                        <Image Source="user.png"
                            WidthRequest="25">
-                        <Image.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding IrLogincommand}"/>
-                        </Image.GestureRecognizers>
-                    </Image>
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding IrLogincommand}"/>
+                            </Image.GestureRecognizers>
+                        </Image>
 
-                </StackLayout>
+                    </StackLayout>
 
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer/>
-                </Frame.GestureRecognizers>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer/>
+                    </Frame.GestureRecognizers>
 
-            </Frame>
-        </StackLayout>
+                </Frame>
+            </StackLayout>
 
-        <Grid VerticalOptions="FillAndExpand" BackgroundColor="#F5F5F5"
-              Margin="10,0,10,0" IsVisible="{Binding Conectado}">
+            <Grid VerticalOptions="FillAndExpand" BackgroundColor="#F5F5F5"
+              Margin="10,0,10,0">
 
-            <ScrollView>
-                <Grid ColumnDefinitions="*,*">
-                    <StackLayout x:Name="Izquierda" Grid.Column="0">
-                        <!--<Frame BackgroundColor="White"
-                               HeightRequest="330"
-                               CornerRadius="15"
+                <CollectionView ItemsSource="{Binding ListaMA}" Margin="5">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" Span="2"
+                                     HorizontalItemSpacing="15"
+                                     VerticalItemSpacing="12"/>
+                    </CollectionView.ItemsLayout>
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame BackgroundColor="White"
+                               HeightRequest="345"
+                               CornerRadius="10"
                                Padding="0"
                                HasShadow="False"
                                Margin="10">
 
-                            <StackLayout>
-                                <Frame Margin="10,5,10,0"
+                                <StackLayout>
+                                    <Frame Margin="10,5,10,0"
                                        Padding="0"
                                        HasShadow="False"
                                        CornerRadius="10"
                                        HeightRequest="125">
-                                    <Image Source="https://i.ibb.co/SdHL1Nd/husky-siberiano-redes.jpg"
-                                       HeightRequest="125"
-                                       HorizontalOptions="Center"
-                                       />
-                                </Frame>
-                                <Label Text="Duquesa"
+                                        <Image Source="{Binding LinkFoto}"
+                                               HeightRequest="125"
+                                               HorizontalOptions="Center"
+                                               Aspect="AspectFill"
+                                               />
+                                    </Frame>
+                                    <Label Text="{Binding Nombre}"
                                        TextColor="Black"
                                        FontAttributes="Bold"
                                        FontSize="22"
                                        HorizontalOptions="Center"
                                        CharacterSpacing="1"/>
-                                <Label Text="3 años"
+                                    <Label Text="{Binding Edad}"
                                        TextColor="Gray"
                                        FontSize="18"
                                        HorizontalOptions="Center"/>
-                                <Label Text="Hembra"
+                                    <Label Text="{Binding Sexo}"
                                        TextColor="Gray"
                                        FontSize="18"
                                        HorizontalOptions="Center"
                                        Margin="0,-5,0,0"/>
-                                <Label Text="Localizada en Tijuana"
+                                    <Label Text="{Binding Raza}"
+                                       TextColor="Gray"
+                                       FontSize="18"
+                                       HorizontalOptions="Center"
+                                       Margin="0,-5,0,0"
+                                       CharacterSpacing="2"/>
+                                    <Label Text="{Binding Area}"
                                        TextColor="Gray"
                                        FontSize="16"
                                        HorizontalOptions="Center"
-                                       Margin="0,-5,0,0"
-                                       HorizontalTextAlignment="Center"/>
+                                       Margin="0,-5,0,0"/>
 
-                               
-                                    <Button CornerRadius="10"
-                                            BackgroundColor="#F18043"
-                                            TextTransform="None"
-                                            TextColor="White"
-                                            FontSize="15"
-                                            FontAttributes="Bold"
-                                            Text="¡Lo quiero adoptar!"
-                                            Margin="5"
-                                            HeightRequest="45"
-                                            HorizontalOptions="Center"/>
-                               
+                                    <StackLayout Orientation="Horizontal" Margin="3" HorizontalOptions="Center">
+                                        <Button Text="¡Lo quiero adoptar!"
+                                                FontAttributes="Bold"
+                                                BackgroundColor="#F18043"
+                                                FontSize="12"
+                                                HeightRequest="45"
+                                                CornerRadius="15"/>
+                                    </StackLayout>
 
-                            </StackLayout>
+                                </StackLayout>
 
-                        </Frame>-->
-                    </StackLayout>
-                    <StackLayout x:Name="Derecha" Grid.Column="1">
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
 
-                    </StackLayout>
-                </Grid>
-            </ScrollView>
-        </Grid>
-
+        </StackLayout>
         <ValidarInternet:ValidacionesInternet IsVisible="{Binding SinConexion}" VerticalOptions="FillAndExpand"/>
-
     </StackLayout>
+
 </ContentPage>

@@ -62,7 +62,7 @@ namespace ProyectoAntirrabico.ViewModel
         #endregion
 
         #region COMANDOS
-        //public ICommand IrLogincommand => new Command(async () => await IrLogin());
+        public ICommand IrLogincommand => new Command(async () => await IrLogin());
         public ICommand IrFormMAcommand => new Command(async () => await IrFormMascotasAdopcion());
         //public ICommand ProcesoSimpcommand => new Command(DibujarMascotaAdopcion);
         #endregion

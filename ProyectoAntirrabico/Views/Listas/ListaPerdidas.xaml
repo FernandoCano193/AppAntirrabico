@@ -6,12 +6,13 @@
              Title="ListaPerdidas"
              xmlns:ValidarInternet="clr-namespace:ProyectoAntirrabico.Views.ValidarInternet">
 
-    <StackLayout>
-        
-        <StackLayout BackgroundColor="#F5F5F5" IsVisible="{Binding Conectado}">
+
+    <StackLayout BackgroundColor="#F5F5F5">
+
+        <StackLayout IsVisible="{Binding Conectado}">
 
             <StackLayout Orientation="Horizontal" VerticalOptions="Start"
-                         BackgroundColor="White">
+                     BackgroundColor="White">
 
                 <Image Source="logoAjustado.png"
                    HeightRequest="80"
@@ -44,79 +45,84 @@
 
             <Grid VerticalOptions="FillAndExpand" BackgroundColor="#F5F5F5"
               Margin="10,0,10,0">
-                <ScrollView>
-                    <Grid ColumnDefinitions="*,*">
-                        <StackLayout x:Name="Izquierda" Grid.Column="0">
-                            <!--<Frame BackgroundColor="White"
-                               HeightRequest="330"
-                               CornerRadius="15"
+
+                <CollectionView ItemsSource="{Binding ListaMP}" Margin="5">
+
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical"
+                                     Span="2"
+                                     HorizontalItemSpacing="15"
+                                     VerticalItemSpacing="12"/>
+                    </CollectionView.ItemsLayout>
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame BackgroundColor="White"
+                               HeightRequest="320"
+                               CornerRadius="10"
                                Padding="0"
                                HasShadow="False"
                                Margin="10">
 
-                            <StackLayout>
-                                <Frame Margin="10,5,10,0"
+                                <StackLayout>
+                                    <Frame Margin="10,10,10,0"
                                        Padding="0"
                                        HasShadow="False"
                                        CornerRadius="10"
-                                       HeightRequest="125">
-                                    <Image Source="https://i.ibb.co/SdHL1Nd/husky-siberiano-redes.jpg"
-                                       HeightRequest="125"
-                                       HorizontalOptions="Center"
-                                       />
-                                </Frame>
-                                <Label Text="Duquesa"
+                                       HeightRequest="120">
+                                        <Image Source="{Binding LinkFoto}"
+                                               HeightRequest="125"
+                                               HorizontalOptions="Center"
+                                               Aspect="AspectFill"/>
+                                    </Frame>
+                                    <Label Text="{Binding Raza}"
                                        TextColor="Black"
                                        FontAttributes="Bold"
                                        FontSize="22"
                                        HorizontalOptions="Center"
                                        CharacterSpacing="1"/>
-                                <Label Text="3 años"
+                                    <Label Text="{Binding Edad}"
                                        TextColor="Gray"
                                        FontSize="18"
                                        HorizontalOptions="Center"/>
-                                <Label Text="Hembra"
+                                    <Label Text="{Binding Sexo}"
                                        TextColor="Gray"
                                        FontSize="18"
                                        HorizontalOptions="Center"
                                        Margin="0,-5,0,0"/>
-                                <Label Text="Localizada en Tijuana"
+                                    <Label Text="{Binding Area}"
                                        TextColor="Gray"
                                        FontSize="16"
                                        HorizontalOptions="Center"
                                        Margin="0,-5,0,0"
                                        HorizontalTextAlignment="Center"/>
 
+                                    <StackLayout Orientation="Horizontal"
+                                             Margin="10" 
+                                             HorizontalOptions="Center">
+                                        
+                                        <Button Text="¡Yo lo perdi!"
+                                                BackgroundColor="#F18043"
+                                                CornerRadius="15"
+                                                FontAttributes="Bold"
+                                                HeightRequest="45"/>
+                                        
+                                    </StackLayout>
 
-                                <Button CornerRadius="10"
-                                        BackgroundColor="#F18043"
-                                        TextTransform="None"
-                                        TextColor="White"
-                                        FontSize="15"
-                                        FontAttributes="Bold"
-                                        Text="¡Yo lo perdi!"
-                                        Margin="5"
-                                        HeightRequest="40"
-                                        VerticalOptions="Center"
-                                        HorizontalOptions="Center"/>
+                                </StackLayout>
 
-
-                            </StackLayout>
-
-                        </Frame>-->
-
-                        </StackLayout>
-                        <StackLayout x:Name="Derecha" Grid.Column="1">
-
-                        </StackLayout>
-                    </Grid>
-                </ScrollView>
-
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
             </Grid>
+
         </StackLayout>
 
         <ValidarInternet:ValidacionesInternet IsVisible="{Binding SinConexion}" VerticalOptions="FillAndExpand"/>
-        
+
     </StackLayout>
+
+
 
 </ContentPage>
