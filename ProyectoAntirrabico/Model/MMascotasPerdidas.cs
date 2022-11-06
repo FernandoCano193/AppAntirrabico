@@ -14,5 +14,6 @@ namespace ProyectoAntirrabico.Model
         public string Raza { get; set; }
         public string Sexo { get; set; }
         public string IdMascotaPerdida { get; set; }
+        public string Estado { get; set; }
     }
 }

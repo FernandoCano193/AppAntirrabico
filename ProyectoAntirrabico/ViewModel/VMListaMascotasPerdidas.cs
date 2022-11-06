@@ -8,6 +8,7 @@ using ProyectoAntirrabico.Views;
 using ProyectoAntirrabico.Model;
 using ProyectoAntirrabico.Data;
 using System.Collections.ObjectModel;
+using Xamarin.Forms.Internals;
 
 namespace ProyectoAntirrabico.ViewModel
 {
@@ -16,6 +17,7 @@ namespace ProyectoAntirrabico.ViewModel
 
         #region VARIABLES
         int _index;
+        string IdMP;
 
         ObservableCollection<MMascotasPerdidas> _ListaMP;
 
@@ -47,10 +49,14 @@ namespace ProyectoAntirrabico.ViewModel
         {
             await Navigation.PushAsync(new FormMascotasPerdidas());
         }
-
-        public async Task Editar()
+        public async Task Eliminar(MMascotasPerdidas perdidas)
         {
-            await DisplayAlert("Funciona", "Funciona","Ok");
+            await DisplayAlert("Listo", perdidas.IdMascotaPerdida, "Ok");
+        }
+
+        public async Task Editar(MMascotasPerdidas perdidas)
+        {
+            await Navigation.PushAsync(new EditarMascotasPerdidas(perdidas));
         }
 
         //public void DibujarMascotaPerdida(MMascotasPerdidas mascota, int index, StackLayout CDerecha, StackLayout CIzquierda)
@@ -188,30 +194,24 @@ namespace ProyectoAntirrabico.ViewModel
             var funcion = new DMascotasPerdidas();
 
             ListaMP = await funcion.MostrarMP();
-
-            //var box = new BoxView
-            //{
-            //    HeightRequest = 50
-            //};
-            //CDerecha.Children.Add(box);
-
-            //foreach(var mascota in ListaMP)
-            //{
-            //    DibujarMascotaPerdida(mascota, _index, CDerecha, CIzquierda);
-            //    _index++;
-            //}
         }
         public async Task IrLogin()
         {
             await Navigation.PushAsync(new Login());
         }
 
+        public async Task btnPerdido()
+        {
+            await DisplayAlert("Ok", "Ok", "Ok");
+        }
         #endregion
         #region COMANDOS
         public ICommand IrListaMAcommand => new Command(async () => await IrListaMascotasAdopcion());
         public ICommand IrLogincommand => new Command(async () => await IrLogin());
         public ICommand IrFormMPcommand => new Command(async () => await IrFormMascotasPerdidas());
-        public ICommand IrEditar => new Command(async () => await Editar());
+        public ICommand IrEditarCommand => new Command<MMascotasPerdidas>(async (p) => await Editar(p));
+        public ICommand IrEliminar => new Command<MMascotasPerdidas>(async (p) => await Eliminar(p));
+        public ICommand btnPerdidocommand => new Command(async () => await btnPerdido());
         #endregion
 
     }

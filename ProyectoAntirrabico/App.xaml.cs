@@ -12,7 +12,7 @@ namespace ProyectoAntirrabico
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage (new Home());
+            MainPage = new NavigationPage (new HomeAdmin());
         }
 
         protected override void OnStart()

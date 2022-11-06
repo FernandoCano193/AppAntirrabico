@@ -69,7 +69,7 @@ namespace ProyectoAntirrabico.ViewModel
             set
             {
                 SetProperty(ref _txtArea, value);
-                txtArea = "Localizado en "+_txtArea;
+                txtArea = _txtArea;
             }
         }
         public string txtEspecie
@@ -143,6 +143,7 @@ namespace ProyectoAntirrabico.ViewModel
             parametros.Area = SeleccionArea;
             parametros.Especie = txtEspecie;
             parametros.Sexo = SeleccionSexo;
+            parametros.Estado = "Activo";
             parametros.Edad = txtEdad;
             parametros.Colores = txtColores;
             parametros.Raza = txtRaza;
@@ -171,6 +172,7 @@ namespace ProyectoAntirrabico.ViewModel
             Parametros.IdMascotaPerdida = IDMascotaP;
             Parametros.Raza = txtRaza;
             Parametros.Sexo = txtSexo;
+            Parametros.Estado = "Activo";
             Parametros.Edad = txtEdad;
             Parametros.Colores = txtColores;
             Parametros.Area = txtArea;

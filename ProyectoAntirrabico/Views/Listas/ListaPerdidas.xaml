@@ -46,7 +46,7 @@
             <Grid VerticalOptions="FillAndExpand" BackgroundColor="#F5F5F5"
               Margin="10,0,10,0">
 
-                <CollectionView ItemsSource="{Binding ListaMP}" Margin="5">
+                <CollectionView ItemsSource="{Binding ListaMP}" Margin="5" x:Name="lista">
 
                     <CollectionView.ItemsLayout>
                         <GridItemsLayout Orientation="Vertical"
@@ -105,7 +105,9 @@
                                                 BackgroundColor="#F18043"
                                                 CornerRadius="15"
                                                 FontAttributes="Bold"
-                                                HeightRequest="45"/>
+                                                HeightRequest="45"
+                                                Command="{Binding Path=BindingContext.btnPerdidocommand,Source={x:Reference lista}}"
+                                                CommandParameter="{Binding .}"/>
                                         
                                     </StackLayout>
 

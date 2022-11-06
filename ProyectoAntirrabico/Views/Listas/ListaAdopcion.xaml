@@ -50,7 +50,8 @@
             <Grid VerticalOptions="FillAndExpand" BackgroundColor="#F5F5F5"
               Margin="10,0,10,0">
 
-                <CollectionView ItemsSource="{Binding ListaMA}" Margin="5">
+                <CollectionView ItemsSource="{Binding ListaMA}" Margin="5"
+                                x:Name="lista">
                     <CollectionView.ItemsLayout>
                         <GridItemsLayout Orientation="Vertical" Span="2"
                                      HorizontalItemSpacing="15"
@@ -111,7 +112,9 @@
                                                 BackgroundColor="#F18043"
                                                 FontSize="12"
                                                 HeightRequest="45"
-                                                CornerRadius="15"/>
+                                                CornerRadius="15"
+                                                Command="{Binding Path=BindingContext.btnAdoptarcommand,Source={x:Reference lista}}"
+                                                CommandParameter="{Binding .}"/>
                                     </StackLayout>
 
                                 </StackLayout>

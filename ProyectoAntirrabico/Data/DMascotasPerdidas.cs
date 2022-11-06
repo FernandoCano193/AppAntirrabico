@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.IO;
+using Firebase.Storage;
 
 namespace ProyectoAntirrabico.Data
 {
@@ -29,6 +30,7 @@ namespace ProyectoAntirrabico.Data
                 {
                     Area = parametros.Area,
                     Colores = parametros.Colores,
+                    Estado = parametros.Estado,
                     Edad = parametros.Edad,
                     Especie = parametros.Especie,
                     LinkFoto = parametros.LinkFoto,
@@ -39,6 +41,26 @@ namespace ProyectoAntirrabico.Data
             IDMascotaP = data.Key;
             return IDMascotaP;
         }
+
+        public async Task EliminarMascotasPerdidas(MMascotasPerdidas mascota)
+        {
+            var MascotaEliminar = (await CConexion.firebase
+                .Child("MascotasPerdidas")
+                .OnceAsync<MMascotasPerdidas>()).Where(a => a.Key == mascota.IdMascotaPerdida).FirstOrDefault();
+
+            await CConexion.firebase
+                .Child("MascotasPerdidas")
+                .Child(MascotaEliminar.Key).DeleteAsync();
+
+        }
+
+        public async Task EliminarFoto(string nombre)
+        {
+            await new FirebaseStorage("appmascotas-a2b71.appspot.com")
+                .Child("MascotasPerdidas")
+                .Child(nombre).DeleteAsync();
+        }
+
         public async Task EditarFoto(MMascotasPerdidas parametros)
         {
             var data = (await CConexion.firebase
@@ -52,12 +74,13 @@ namespace ProyectoAntirrabico.Data
                 {
                     LinkFoto = parametros.LinkFoto,
                     Raza = parametros.Raza,
+                    Estado = parametros.Estado,
                     Edad = parametros.Edad,
                     Colores = parametros.Colores,
                     Area = parametros.Area,
                     Especie = parametros.Especie,
                     Sexo = parametros.Sexo
-                });
+                }) ;
         }
 
         //Consultas  Mascotas Perididas con un ObservableCollection

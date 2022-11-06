@@ -50,7 +50,7 @@
             <Grid VerticalOptions="FillAndExpand" BackgroundColor="#F5F5F5"
               Margin="10,0,10,0">
 
-                <CollectionView ItemsSource="{Binding ListaMA}" Margin="5">
+                <CollectionView ItemsSource="{Binding ListaMA}" Margin="5" x:Name="lista">
                     <CollectionView.ItemsLayout>
                         <GridItemsLayout Orientation="Vertical" Span="2"
                                      HorizontalItemSpacing="15"
@@ -67,17 +67,20 @@
                                Margin="10">
 
                                 <StackLayout>
-                                    <Frame Margin="10,5,10,0"
+                                    <Frame Margin="10,10,10,0"
                                        Padding="0"
                                        HasShadow="False"
-                                       CornerRadius="10"
-                                       HeightRequest="125">
+                                           CornerRadius="20"
+                                       HeightRequest="145"
+                                           WidthRequest="125">
+                                        
                                         <Image Source="{Binding LinkFoto}"
-                                               HeightRequest="125"
+                                               HeightRequest="130"
+                                               WidthRequest="180"
                                                HorizontalOptions="Center"
-                                               Aspect="AspectFill"
-                                               />
+                                               Aspect="AspectFill"/>
                                     </Frame>
+                                    
                                     <Label Text="{Binding Nombre}"
                                        TextColor="Black"
                                        FontAttributes="Bold"
@@ -99,33 +102,48 @@
                                        HorizontalOptions="Center"
                                        Margin="0,-5,0,0"
                                        CharacterSpacing="2"/>
-                                    <Label Text="{Binding Area}"
+                                    <Label
                                        TextColor="Gray"
                                        FontSize="16"
                                        HorizontalOptions="Center"
-                                       Margin="0,-5,0,0"/>
+                                       Margin="0,-5,0,0">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Ubicado en "/>
+                                                <Span Text="{Binding Area}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
 
                                     <StackLayout Orientation="Horizontal"
                                              Margin="10" 
                                              HorizontalOptions="Center">
                                         <Frame BackgroundColor="#0984e3"
-                                           HeightRequest="30"
-                                           Padding="5"
-                                           CornerRadius="5"
-                                           Margin="0,0,10,0">
-                                            <Image 
-                                           Source="https://i.ibb.co/2g2Yztc/edit.png"
-                                           VerticalOptions="Center"
-                                           HorizontalOptions="Center"/>
+                                               HeightRequest="30"
+                                               Padding="5"
+                                               CornerRadius="5"
+                                               Margin="0,0,10,0">
+                                            <Image Source="https://i.ibb.co/2g2Yztc/edit.png"
+                                                   VerticalOptions="Center"
+                                                   HorizontalOptions="Center"/>
 
+                                            <Frame.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Path=BindingContext.IrEditarcommand, Source={x:Reference lista}}"
+                                                                      CommandParameter="{Binding .}"/>
+                                            </Frame.GestureRecognizers>
                                         </Frame>
                                         <Frame BackgroundColor="#d63031"
-                                           HeightRequest="30"
-                                           Padding="5"
-                                           CornerRadius="5">
+                                               HeightRequest="30"
+                                               Padding="5"
+                                               CornerRadius="5">
                                             <Image Source="https://i.ibb.co/ph9JNn1/delete.png"
-                                           VerticalOptions="Center"
-                                           HorizontalOptions="Center"/>
+                                                   VerticalOptions="Center"
+                                                   HorizontalOptions="Center"/>
+
+                                            <Frame.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Path=BindingContext.IrEliminarcommand, Source={x:Reference lista}}"
+                                                                      CommandParameter="{Binding .}"/>
+                                            </Frame.GestureRecognizers>
                                         </Frame>
                                     </StackLayout>
 

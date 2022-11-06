@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoAntirrabico.Views.EditarMascotasPerdidas"
+             xmlns:ValidarInternet="clr-namespace:ProyectoAntirrabico.Views.ValidarInternet"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Content>
+        <Grid RowDefinitions="65,*"
+          BackgroundColor="#F6F6F6">
+
+            <StackLayout Grid.Row="0"
+                         Orientation="Horizontal"
+                         BackgroundColor="White"
+                         Margin="0,0,0,0"
+                         IsVisible="true">
+
+                <Image Source="logoAjustado.png"
+                   HeightRequest="140"/>
+
+                <Label Text="Editar mascotas perdidas"
+                       VerticalOptions="Center"
+                       HorizontalOptions="CenterAndExpand"
+                       FontSize="20"
+                       TextColor="Gray"/>
+
+                <Frame HasShadow="False"
+                   BorderColor="#3C4562"
+                   CornerRadius="50"
+                   HorizontalOptions="EndAndExpand"
+                   BackgroundColor="#C4C4C4"
+                   WidthRequest="35"
+                   Padding="0"
+                   Margin="15">
+
+                    <StackLayout VerticalOptions="Center">
+                        <Image Source="user.png"
+                       WidthRequest="25"/>
+                    </StackLayout>
+
+                </Frame>
+
+
+            </StackLayout>
+
+            <StackLayout Grid.Row="1"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center"
+                         IsVisible="true">
+
+                <Frame HeightRequest="700"
+                       WidthRequest="380"
+                       CornerRadius="20"
+                       Padding="1">
+
+                    <StackLayout>
+                        <Frame Padding="0"
+                               Margin="10"
+                               HeightRequest="140"
+                               WidthRequest="150"
+                               HasShadow="False"
+                               CornerRadius="20"
+                               HorizontalOptions="Center"
+                               BackgroundColor="Red">
+                            
+                            <Image Source="{Binding RecibeMascotas.LinkFoto}"
+                               WidthRequest="150"
+                               HeightRequest="150"
+                               x:Name="FotoCelular"
+                               Aspect="AspectFill"/>
+                            
+                        </Frame>
+
+                        <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="CenterAndExpand">
+
+                            <Button Text="Seleccionar foto"
+                                    x:Name="btnAgregarFoto"
+                                    HorizontalOptions="Center"
+                                    TextTransform="None"
+                                    FontAttributes="Bold"
+                                    BackgroundColor="#F18043"
+                                    TextColor="White"
+                                    WidthRequest="150"
+                                    CornerRadius="10"
+                                    HeightRequest="45"
+                                    Margin="45,0,0,0"
+                                    Command="{Binding AgregarFotocommand}"/>
+
+                            <Frame BackgroundColor="#F18043"
+                               Padding="5"
+                               CornerRadius="10">
+
+                                <Image Source="upload.png"
+                                   WidthRequest="30">
+                                </Image>
+
+                            </Frame>
+
+                        </StackLayout>
+
+                        <Grid RowDefinitions="50,50,50,50,50,50" ColumnDefinitions="100,230"
+                          HorizontalOptions="CenterAndExpand"
+                          Margin="0,25,0,0">
+
+                            <Label Grid.Row="0" Grid.Column="0"
+                                   Text="Área:"
+                                   TextColor="Gray"
+                                   VerticalOptions="Center"
+                                   FontSize="18"
+                                   FontAttributes="Bold"
+                                   HorizontalOptions="End"/>
+
+                            <Picker Grid.Column="1" Grid.Row="0"
+                                        TitleColor="Gray"
+                                        Title="Seleccionar"
+                                        TextColor="Black"
+                                        FontSize="18"
+                                    SelectedItem="{Binding RecibeMascotas.Area}">
+                                <Picker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>Tijuana</x:String>
+                                        <x:String>Rosarito</x:String>
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+
+
+                            <Label Grid.Row="1" Grid.Column="0"
+                                   Text="Especie:"
+                                   VerticalOptions="Center"
+                                   FontSize="18"
+                                   FontAttributes="Bold"
+                                   TextColor="Gray"
+                                   HorizontalOptions="End"/>
+                            <Frame Grid.Row="1" Grid.Column="1"
+                                   Padding="0"
+                                   HasShadow="{OnPlatform Android=true, iOS=false}"
+                                   CornerRadius="2"
+                                   Margin="0,4">
+
+                                <Entry TextColor="Black"
+                                       Text="{Binding RecibeMascotas.Especie}"/>
+                            </Frame>
+
+
+                            <Label Grid.Row="2" Grid.Column="0"
+                                   Text="Sexo:"
+                                   VerticalOptions="Center"
+                                   FontSize="18"
+                                   FontAttributes="Bold"
+                                   HorizontalOptions="End"
+                                   TextColor="Gray"/>
+                            <Picker Grid.Column="1" Grid.Row="2"
+                                    Title="Seleccionar"
+                                    TitleColor="Gray"
+                                    TextColor="Black"
+                                    FontSize="18"
+                                    SelectedItem="{Binding RecibeMascotas.Sexo}">
+                                <Picker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>Macho</x:String>
+                                        <x:String>Hembra</x:String>
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+
+                            <Label Grid.Row="3" Grid.Column="0"
+                                   Text="Edad:"
+                                   VerticalOptions="Center"
+                                   FontSize="18"
+                                   FontAttributes="Bold"
+                                   HorizontalOptions="End"
+                                   TextColor="Gray"/>
+                            <Frame Grid.Row="3" Grid.Column="1"
+                                   Padding="0"
+                                   HasShadow="{OnPlatform Android=true, iOS=false}"
+                                   CornerRadius="2"
+                                   Margin="0,0,0,4">
+
+                                <Entry TextColor="Black"
+                                       Text="{Binding RecibeMascotas.Edad}"/>
+
+                            </Frame>
+
+
+                            <Label Grid.Row="4" Grid.Column="0"
+                                   Text="Colores:"
+                                   VerticalOptions="Center"
+                                   FontSize="18"
+                                   FontAttributes="Bold"
+                                   HorizontalOptions="End"
+                                   TextColor="Gray"/>
+                            <Frame Grid.Row="4" Grid.Column="1"
+                                   Padding="0"
+                                   HasShadow="{OnPlatform Android=true, iOS=false}"
+                                   CornerRadius="2"
+                                   Margin="0,0,0,4">
+
+                                <Entry TextColor="Black"
+                                       Text="{Binding RecibeMascotas.Colores}"/>
+
+                            </Frame>
+
+                            <Label Grid.Row="5" Grid.Column="0"
+                                   Text="Raza:"
+                                   VerticalOptions="Center"
+                                   FontSize="18"
+                                   FontAttributes="Bold"
+                                   HorizontalOptions="End"
+                                   TextColor="Gray"/>
+                            <Frame Grid.Row="5" Grid.Column="1"
+                                   Padding="0"
+                                   HasShadow="{OnPlatform Android=true, iOS=false}"
+                                   CornerRadius="2"
+                                   Margin="0,0,0,4">
+
+                                <Entry TextColor="Black" 
+                                       Text="{Binding RecibeMascotas.Raza}"/>
+                            </Frame>
+
+
+
+                        </Grid>
+
+                        <StackLayout Orientation="Horizontal" 
+                                     Margin="0,25,0,-40"
+                                     HorizontalOptions="Center">
+
+                            <Frame BackgroundColor="#B22222"
+                                   CornerRadius="40"
+                                   WidthRequest="50"
+                                   HeightRequest="50"
+                                   HorizontalOptions="CenterAndExpand"
+                                   Padding="0"
+                                   Margin="0,0,35,0">
+
+                                <StackLayout VerticalOptions="Center">
+
+                                    <Image Source="cancel.png"
+                                           HeightRequest="25"/>
+
+                                </StackLayout>
+
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Cancelarcommand}"/>
+                                </Frame.GestureRecognizers>
+
+                            </Frame>
+
+                            <Frame BackgroundColor="#2E8B57"
+                                   CornerRadius="40"
+                                   WidthRequest="50"
+                                   HeightRequest="20"
+                                   HorizontalOptions="CenterAndExpand"
+                                   Padding="0"
+                                   Margin="35,0,0,0">
+
+                                <StackLayout VerticalOptions="Center">
+
+                                    <Image Source="save.png"
+                                           HeightRequest="30"/>
+
+                                </StackLayout>
+
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding editarcommand}"/>
+                                </Frame.GestureRecognizers>
+
+                            </Frame>
+                        </StackLayout>
+                    </StackLayout>
+
+                </Frame>
+
+            </StackLayout>
+
+            <ValidarInternet:ValidacionesInternet IsVisible="{Binding SinConexion}" VerticalOptions="FillAndExpand" Grid.RowSpan="2"/>
+
+        </Grid>
+
+    </ContentPage.Content>
+
+</ContentPage>

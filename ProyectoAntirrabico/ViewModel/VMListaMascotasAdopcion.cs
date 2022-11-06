@@ -49,6 +49,16 @@ namespace ProyectoAntirrabico.ViewModel
             await Navigation.PushAsync(new Login());
         }
 
+        public async Task Eliminar()
+        {
+            await DisplayAlert("Eliminar", "Eliminar", "Eliminar");
+        }
+
+        public async Task Editar(MMascotasAdopocion adopocion)
+        {
+            await Navigation.PushAsync(new EditarMascotaAdopcion(adopocion));
+        }
+
         public async Task IrFormMascotasAdopcion()
         {
             await Navigation.PushAsync(new FormMascotasAdopcion());
@@ -59,10 +69,17 @@ namespace ProyectoAntirrabico.ViewModel
             var funcion = new DMascotasAdopcion();
             ListaMA = await funcion.MostrarMA();
         }
+        public async Task btnAdoptar()
+        {
+            await DisplayAlert("Ok", "Ok", "Ok");
+        }
         #endregion
 
         #region COMANDOS
         public ICommand IrLogincommand => new Command(async () => await IrLogin());
+        public ICommand IrEliminarcommand => new Command(async () => await Eliminar());
+        public ICommand IrEditarcommand => new Command<MMascotasAdopocion>(async (p) => await Editar(p));
+        public ICommand btnAdoptarcommand => new Command(async () => await btnAdoptar());
         public ICommand IrFormMAcommand => new Command(async () => await IrFormMascotasAdopcion());
         //public ICommand ProcesoSimpcommand => new Command(DibujarMascotaAdopcion);
         #endregion

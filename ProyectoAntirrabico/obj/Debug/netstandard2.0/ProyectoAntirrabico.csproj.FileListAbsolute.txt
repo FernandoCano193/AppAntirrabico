@@ -64,3 +64,5 @@ C:\Antirrabico\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\Proyecto
 C:\Antirrabico\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\refint\ProyectoAntirrabico.dll
 C:\Antirrabico\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\ProyectoAntirrabico.pdb
 C:\Antirrabico\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\ref\ProyectoAntirrabico.dll
+C:\Antirrabico\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\Views\EditarMascotaAdopcion.xaml.g.cs
+C:\Antirrabico\Antirrabico\ProyectoAntirrabico\obj\Debug\netstandard2.0\Views\EditarMascotasPerdidas.xaml.g.cs
