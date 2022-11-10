@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoAntirrabico.Views.FormRegistroAdmin"
+             xmlns:Carga="clr-namespace:ProyectoAntirrabico.Views.Carga"
              xmlns:ValidarInternet="clr-namespace:ProyectoAntirrabico.Views.ValidarInternet"
              NavigationPage.HasNavigationBar="False">
 
@@ -211,7 +212,7 @@
         </Grid>
 
         <ValidarInternet:ValidacionesInternet IsVisible="{Binding SinConexion}" VerticalOptions="FillAndExpand"/>
-        
+        <Carga:Load IsVisible="{Binding Carga}" VerticalOptions="FillAndExpand"/>
     </StackLayout>
 
 

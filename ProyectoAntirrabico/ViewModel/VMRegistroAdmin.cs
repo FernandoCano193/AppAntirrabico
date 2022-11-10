@@ -25,6 +25,7 @@ namespace ProyectoAntirrabico.ViewModel
         string _Correo;
         string _Contraseña;
         string _LinkFoto;
+        bool _Carga;
 
         ImageSource _foto = "https://i.ibb.co/6sTPt9y/user-logo.png";
 
@@ -56,6 +57,11 @@ namespace ProyectoAntirrabico.ViewModel
         {
             get { return _Nombres; }
             set { SetValue(ref _Nombres, value); }
+        }
+        public bool Carga
+        {
+            get { return _Carga; }
+            set { SetValue(ref _Carga, value); }
         }
 
         public string txtApellidos
@@ -206,12 +212,13 @@ namespace ProyectoAntirrabico.ViewModel
                 return;
             }
 
+            Carga = true;
             CrearAutenticacion();
             await InsertarAdmin();
             await SubirImagen();
             await EditarFoto();
-            
 
+            Carga = false;
             await DisplayAlert("Listo","Se ha insertado el nuevo admin","Ok");
 
             await Navigation.PopAsync();

@@ -46,7 +46,7 @@ namespace ProyectoAntirrabico.ViewModel
         #region PROCESOS
         public async Task IrLogin()
         {
-            await Navigation.PushAsync(new Login());
+            //await Navigation.PushAsync(new Login());
         }
 
         public async Task Eliminar()

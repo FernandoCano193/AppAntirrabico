@@ -25,6 +25,7 @@ namespace ProyectoAntirrabico.ViewModel
         string _txtEdad;
         string _txtColores;
         string _txtRaza;
+        bool _Carga;
         ImageSource _foto = "https://i.ibb.co/dKMhgbR/picture.png";
 
         MediaFile file;
@@ -45,6 +46,11 @@ namespace ProyectoAntirrabico.ViewModel
         {
             get { return _txtLinkFoto; }
             set { SetValue(ref _txtLinkFoto, value); }
+        }
+        public bool Carga
+        {
+            get { return _Carga; }
+            set { SetValue(ref _Carga, value); }
         }
 
         public ImageSource FotoCelular
@@ -119,15 +125,7 @@ namespace ProyectoAntirrabico.ViewModel
 
         public async void Cancelar()
         {
-            Foto = null;
-            txtLinkFoto = null;
-            SeleccionArea = null;
-            txtEspecie = null;
-            SeleccionSexo = null;
-            txtEdad = null;
-            txtColores = null;
-            txtRaza = null;
-
+            Limpiar();
             await Navigation.PopAsync();
 
         }
@@ -157,10 +155,13 @@ namespace ProyectoAntirrabico.ViewModel
 
         public async Task AgregarMascota()
         {
+            Carga = true;
             await InsertarMP();
             await SubirImagen();
             await EditarFoto();
+            Carga = false;
             await DisplayAlert("Listo", "Se ha registrado una nueva mascota", "Ok");
+            Limpiar();
         }
 
         public async Task EditarFoto()
@@ -204,6 +205,18 @@ namespace ProyectoAntirrabico.ViewModel
             }
         }
 
+        public void Limpiar()
+        {
+            FotoCelular = null;
+            _foto = "https://i.ibb.co/dKMhgbR/picture.png";
+            txtLinkFoto = null;
+            SeleccionArea = null;
+            txtEspecie = null;
+            SeleccionSexo = null;
+            txtEdad = null;
+            txtColores = null;
+            txtRaza = null;
+        }
         public async Task SubirImagen()
         {
             var funcion = new DMascotasPerdidas();

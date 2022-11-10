@@ -26,6 +26,7 @@ namespace ProyectoAntirrabico.ViewModel
         string _txtEdad;
         string _txtColores;
         string _txtRaza;
+        bool _Carga;
 
         ImageSource _foto = "https://i.ibb.co/dKMhgbR/picture.png";
 
@@ -51,6 +52,12 @@ namespace ProyectoAntirrabico.ViewModel
                 _foto = value;
                 OnPropertyChanged();
             }
+        }
+
+        public bool Carga
+        {
+            get { return _Carga; }
+            set { SetValue(ref _Carga, value); }
         }
 
         public string txtLinkFoto
@@ -162,20 +169,29 @@ namespace ProyectoAntirrabico.ViewModel
             parametros.Nombre = txtNombre;
 
             await funcion.EditarFoto(parametros);
-
         }
 
         public async Task AgregarMascota()
         {
+            Carga = true;
             await Insertar();
             await SubirImagen();
             await EditarFoto();
+            Carga = false;
             await DisplayAlert("Listo", "Se ha registrado una nueva mascota", "Ok");
         }
 
-        public void Cancelar()
+
+        public async Task Cancelar()
         {
-            Foto = null;
+            Limpiar();
+            await Navigation.PopAsync();
+        }
+
+        public void Limpiar()
+        {
+            _foto = "https://i.ibb.co/dKMhgbR/picture.png";
+            FotoCelular = null;
             txtLinkFoto = null;
             SeleccionArea = null;
             txtEspecie = null;
@@ -184,10 +200,7 @@ namespace ProyectoAntirrabico.ViewModel
             txtEdad = null;
             txtColores = null;
             txtRaza = null;
-
-            Navigation.PopAsync();
         }
-
         private async Task AgregarFoto()
         {
             await CrossMedia.Current.Initialize();
@@ -215,7 +228,7 @@ namespace ProyectoAntirrabico.ViewModel
         #region COMANDOS
         public ICommand Insertarcommand => new Command(async () => await AgregarMascota());
         public ICommand AgregarFotocommand => new Command(async () => await AgregarFoto());
-        public ICommand Cancelarcommand => new Command(Cancelar);
+        public ICommand Cancelarcommand => new Command(async () => await Cancelar());
         #endregion
     }
 }

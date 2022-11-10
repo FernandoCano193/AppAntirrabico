@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoAntirrabico.Views.Carga.Load"
+             xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms">
+
+    <StackLayout BackgroundColor="White" >
+        <Frame BackgroundColor="Transparent" VerticalOptions="FillAndExpand">
+            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <lottie:AnimationView Animation="carga.json"
+                                      HeightRequest="200"
+                                      RepeatMode="Infinite"
+                                      AutoPlay="True"/>
+                <Label Text="Cargando..." HorizontalOptions="CenterAndExpand" TextColor="#3C4562"
+                       FontAttributes="Bold" CharacterSpacing="1"/>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+    
+</ContentView>

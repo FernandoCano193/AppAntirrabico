@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoAntirrabico.Views.FormMascotasPerdidas"
+             xmlns:AnimacionCarga="clr-namespace:ProyectoAntirrabico.Views.Carga"
              xmlns:ValidarInternet="clr-namespace:ProyectoAntirrabico.Views.ValidarInternet"
              NavigationPage.HasNavigationBar="False">
 
@@ -14,6 +15,7 @@
                          BackgroundColor="White"
                          Margin="0,0,0,0"
                          IsVisible="{Binding Conectado}">
+
 
                 <Image Source="logoAjustado.png"
                    HeightRequest="140"/>
@@ -62,9 +64,8 @@
                             <Image Source="{Binding FotoCelular}"
                                WidthRequest="150"
                                HeightRequest="150"
-                               Margin="0,10,0,0"
                                x:Name="FotoCelular"
-                               Aspect="AspectFit"/>
+                               Aspect="AspectFill"/>
                         </Frame>
 
                         <StackLayout Orientation="Horizontal"
@@ -272,7 +273,7 @@
             </StackLayout>
 
             <ValidarInternet:ValidacionesInternet IsVisible="{Binding SinConexion}" VerticalOptions="FillAndExpand" Grid.RowSpan="2"/>
-            
+            <AnimacionCarga:Load IsVisible="{Binding Carga}" VerticalOptions="FillAndExpand" Grid.RowSpan="2"/>
         </Grid>
 
     </ContentPage.Content>

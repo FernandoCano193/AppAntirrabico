@@ -74,7 +74,8 @@
                                        CornerRadius="10"
                                        HeightRequest="125">
                                         <Image Source="{Binding LinkFoto}"
-                                               HeightRequest="125"
+                                               HeightRequest="170"
+                                               WidthRequest="170"
                                                HorizontalOptions="Center"
                                                Aspect="AspectFill"
                                                />

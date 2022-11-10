@@ -16,6 +16,7 @@ namespace ProyectoAntirrabico.ViewModel
         #region VARIABLES
         string _txtCorreo;
         string _txtContraseña;
+        bool _Carga;
         #endregion
 
         #region CONSTRUCTOR
@@ -31,6 +32,11 @@ namespace ProyectoAntirrabico.ViewModel
         {
             get { return _txtCorreo; }
             set { SetValue(ref _txtCorreo, value); }
+        }
+        public bool Carga
+        {
+            get { return _Carga; }
+            set { SetValue(ref _Carga, value); }
         }
 
         public string txtContraseña
@@ -73,7 +79,7 @@ namespace ProyectoAntirrabico.ViewModel
             try
             {
                 //Se incia el proceso de validacion para las credenciales
-
+                Carga = true;
                 var authProvider = new FirebaseAuthProvider(new FirebaseConfig(ClaveWebAPI));
                 var auth = await authProvider.SignInWithEmailAndPasswordAsync(txtCorreo.ToString(), txtContraseña.ToString());
                 var content = await auth.GetFreshAuthAsync();
@@ -82,6 +88,7 @@ namespace ProyectoAntirrabico.ViewModel
 
                 //Navegacion a la view FormMascotasAdopcion
                 await Navigation.PushAsync(new HomeAdmin());
+                Carga = false;
 
                 //Se limpian los entrys del correo y contraseña
                 txtContraseña = null;

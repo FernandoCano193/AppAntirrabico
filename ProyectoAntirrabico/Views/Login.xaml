@@ -2,14 +2,16 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:ValidarInternet="clr-namespace:ProyectoAntirrabico.Views.ValidarInternet"
+             xmlns:Carga="clr-namespace:ProyectoAntirrabico.Views.Carga"
              x:Class="ProyectoAntirrabico.Views.Login"
              NavigationPage.HasNavigationBar="False">
 
     <StackLayout>
 
-        <StackLayout IsVisible="{Binding Conectado}">
+        <Grid VerticalOptions="FillAndExpand">
 
-            <StackLayout BackgroundColor="White" HeightRequest="900">
+            <StackLayout BackgroundColor="White" IsVisible="{Binding Conectado}">
+
                 <Image Source="logo.png"
                    HeightRequest="350"/>
 
@@ -22,8 +24,9 @@
                            PlaceholderColor="Gray"
                            Text="{Binding txtCorreo}"
                            WidthRequest="280"
-                           FontSize="20"
+                           FontSize="18"
                            TextColor="#3C4562"
+                           Margin="0,0,0,0"
                            HorizontalTextAlignment="Center"
                            HorizontalOptions="CenterAndExpand">
                         <Entry.Triggers>
@@ -97,11 +100,14 @@
                     Command="{Binding IrRegistrocommand}"/>
 
                 </StackLayout>
+
+
+
             </StackLayout>
-
-        </StackLayout>
-
+            <Carga:Load IsVisible="{Binding Carga}" VerticalOptions="FillAndExpand"/>
+        </Grid>
         <ValidarInternet:ValidacionesInternet IsVisible="{Binding SinConexion}" VerticalOptions="FillAndExpand"/>
+        
 
     </StackLayout>
 </ContentPage>

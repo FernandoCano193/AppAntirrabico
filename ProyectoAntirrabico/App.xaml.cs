@@ -1,5 +1,6 @@
 ﻿using ProyectoAntirrabico.Views;
 using ProyectoAntirrabico.Views.Listas;
+using ProyectoAntirrabico.Views.Carga;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;

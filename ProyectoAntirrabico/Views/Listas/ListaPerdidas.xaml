@@ -72,6 +72,7 @@
                                        HeightRequest="120">
                                         <Image Source="{Binding LinkFoto}"
                                                HeightRequest="125"
+                                               WidthRequest="170"
                                                HorizontalOptions="Center"
                                                Aspect="AspectFill"/>
                                     </Frame>

@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoAntirrabico.Views.FormMascotasAdopcion"
+             xmlns:Carga="clr-namespace:ProyectoAntirrabico.Views.Carga"
              xmlns:ValidacionesInternet="clr-namespace:ProyectoAntirrabico.Views.ValidarInternet"
              NavigationPage.HasNavigationBar="False">
     
@@ -56,13 +57,13 @@
                                WidthRequest="150"
                                HasShadow="False"
                                CornerRadius="20"
+                               Margin="0,10,0,0"
                                HorizontalOptions="Center">
                             <Image Source="{Binding FotoCelular}"
-                               WidthRequest="150"
+                               WidthRequest="180"
                                HeightRequest="150"
-                               Margin="0,10,0,0"
                                x:Name="FotoCelular"
-                               Aspect="AspectFit"/>
+                               Aspect="AspectFill"/>
                         </Frame>
 
                         <StackLayout Orientation="Horizontal"
@@ -285,6 +286,7 @@
             </StackLayout>
 
             <ValidacionesInternet:ValidacionesInternet IsVisible="{Binding SinConexion}" VerticalOptions="FillAndExpand" Grid.RowSpan="2"/>
+            <Carga:Load IsVisible="{Binding Carga}" VerticalOptions="FillAndExpand" Grid.RowSpan="2"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
