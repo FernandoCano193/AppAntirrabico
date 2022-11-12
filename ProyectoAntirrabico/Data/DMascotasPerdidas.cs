@@ -35,7 +35,8 @@ namespace ProyectoAntirrabico.Data
                     Especie = parametros.Especie,
                     LinkFoto = parametros.LinkFoto,
                     Raza = parametros.Raza,
-                    Sexo = parametros.Sexo
+                    Sexo = parametros.Sexo,
+                    IdMascotaPerdida = parametros.IdMascotaPerdida
                 });
 
             IDMascotaP = data.Key;
@@ -78,9 +79,10 @@ namespace ProyectoAntirrabico.Data
                     Edad = parametros.Edad,
                     Colores = parametros.Colores,
                     Area = parametros.Area,
+                    IdMascotaPerdida = data.Key,
                     Especie = parametros.Especie,
                     Sexo = parametros.Sexo
-                }) ;
+                });
         }
 
         //Consultas  Mascotas Perididas con un ObservableCollection

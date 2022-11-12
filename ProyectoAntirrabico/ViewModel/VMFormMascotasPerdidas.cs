@@ -145,6 +145,7 @@ namespace ProyectoAntirrabico.ViewModel
             parametros.Edad = txtEdad;
             parametros.Colores = txtColores;
             parametros.Raza = txtRaza;
+            parametros.IdMascotaPerdida = "-";
 
             IDMascotaP = await funcion.InsertarMascotasPerdidas(parametros);
 
@@ -205,10 +206,17 @@ namespace ProyectoAntirrabico.ViewModel
             }
         }
 
+        public async Task EliminarMascota(MMascotasPerdidas mascotasP)
+        {
+            var funcion = new DMascotasPerdidas();
+            await funcion.EliminarFoto(mascotasP.IdMascotaPerdida+".jpg");
+            await funcion.EliminarMascotasPerdidas(mascotasP);
+            
+        }
+
         public void Limpiar()
         {
-            FotoCelular = null;
-            _foto = "https://i.ibb.co/dKMhgbR/picture.png";
+            FotoCelular = "https://i.ibb.co/dKMhgbR/picture.png";
             txtLinkFoto = null;
             SeleccionArea = null;
             txtEspecie = null;

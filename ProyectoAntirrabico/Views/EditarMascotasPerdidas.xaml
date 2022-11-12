@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoAntirrabico.Views.EditarMascotasPerdidas"
              xmlns:ValidarInternet="clr-namespace:ProyectoAntirrabico.Views.ValidarInternet"
+             xmlns:AnimacionCarga="clr-namespace:ProyectoAntirrabico.Views.Carga"
              NavigationPage.HasNavigationBar="False">
 
     <ContentPage.Content>
@@ -15,8 +16,14 @@
                          Margin="0,0,0,0"
                          IsVisible="true">
 
-                <Image Source="logoAjustado.png"
-                   HeightRequest="140"/>
+                <Image Source="https://i.ibb.co/3FVPHhb/flecha.png"
+                       Margin="15">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding RegresarCommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                
+                
 
                 <Label Text="Editar mascotas perdidas"
                        VerticalOptions="Center"
@@ -24,22 +31,8 @@
                        FontSize="20"
                        TextColor="Gray"/>
 
-                <Frame HasShadow="False"
-                   BorderColor="#3C4562"
-                   CornerRadius="50"
-                   HorizontalOptions="EndAndExpand"
-                   BackgroundColor="#C4C4C4"
-                   WidthRequest="35"
-                   Padding="0"
-                   Margin="15">
-
-                    <StackLayout VerticalOptions="Center">
-                        <Image Source="user.png"
-                       WidthRequest="25"/>
-                    </StackLayout>
-
-                </Frame>
-
+                <Image Source="logoAjustado.png"
+                   HeightRequest="140"/>
 
             </StackLayout>
 
@@ -61,9 +54,9 @@
                                HasShadow="False"
                                CornerRadius="20"
                                HorizontalOptions="Center"
-                               BackgroundColor="Red">
-                            
-                            <Image Source="{Binding RecibeMascotas.LinkFoto}"
+                               BackgroundColor="Transparent">
+
+                            <Image Source="{Binding FotoCelular}"
                                WidthRequest="150"
                                HeightRequest="150"
                                x:Name="FotoCelular"
@@ -116,7 +109,7 @@
                                         Title="Seleccionar"
                                         TextColor="Black"
                                         FontSize="18"
-                                    SelectedItem="{Binding RecibeMascotas.Area}">
+                                    SelectedItem="{Binding txtArea}">
                                 <Picker.ItemsSource>
                                     <x:Array Type="{x:Type x:String}">
                                         <x:String>Tijuana</x:String>
@@ -140,7 +133,7 @@
                                    Margin="0,4">
 
                                 <Entry TextColor="Black"
-                                       Text="{Binding RecibeMascotas.Especie}"/>
+                                       Text="{Binding txtEspecie}"/>
                             </Frame>
 
 
@@ -156,7 +149,7 @@
                                     TitleColor="Gray"
                                     TextColor="Black"
                                     FontSize="18"
-                                    SelectedItem="{Binding RecibeMascotas.Sexo}">
+                                    SelectedItem="{Binding txtSexo}">
                                 <Picker.ItemsSource>
                                     <x:Array Type="{x:Type x:String}">
                                         <x:String>Macho</x:String>
@@ -179,7 +172,7 @@
                                    Margin="0,0,0,4">
 
                                 <Entry TextColor="Black"
-                                       Text="{Binding RecibeMascotas.Edad}"/>
+                                       Text="{Binding txtEdad}"/>
 
                             </Frame>
 
@@ -198,7 +191,7 @@
                                    Margin="0,0,0,4">
 
                                 <Entry TextColor="Black"
-                                       Text="{Binding RecibeMascotas.Colores}"/>
+                                       Text="{Binding txtColores}"/>
 
                             </Frame>
 
@@ -216,59 +209,46 @@
                                    Margin="0,0,0,4">
 
                                 <Entry TextColor="Black" 
-                                       Text="{Binding RecibeMascotas.Raza}"/>
+                                       Text="{Binding txtRaza}"/>
                             </Frame>
 
 
 
                         </Grid>
 
-                        <StackLayout Orientation="Horizontal" 
-                                     Margin="0,25,0,-40"
-                                     HorizontalOptions="Center">
+                        <Grid ColumnDefinitions="150,150" RowDefinitions="55,55" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
+                            <ImageButton Source="https://i.ibb.co/ph9JNn1/delete.png"
+                                         Grid.Column="0"
+                                         Grid.Row="0"
+                                         BackgroundColor="#d63031"
+                                         Padding="10"
+                                         CornerRadius="20"
+                                         HeightRequest="70"
+                                         WidthRequest="60"
+                                         HorizontalOptions="CenterAndExpand"
+                                         Command="{Binding Eliminarcommand}"/>
+                            <Label Grid.Column="0"
+                                   Grid.Row="1"
+                                   Text="Eliminar"
+                                   TextColor="Gray"
+                                   HorizontalTextAlignment="Center"/>
 
-                            <Frame BackgroundColor="#B22222"
-                                   CornerRadius="40"
-                                   WidthRequest="50"
-                                   HeightRequest="50"
-                                   HorizontalOptions="CenterAndExpand"
-                                   Padding="0"
-                                   Margin="0,0,35,0">
-
-                                <StackLayout VerticalOptions="Center">
-
-                                    <Image Source="cancel.png"
-                                           HeightRequest="25"/>
-
-                                </StackLayout>
-
-                                <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding Cancelarcommand}"/>
-                                </Frame.GestureRecognizers>
-
-                            </Frame>
-
-                            <Frame BackgroundColor="#2E8B57"
-                                   CornerRadius="40"
-                                   WidthRequest="50"
-                                   HeightRequest="20"
-                                   HorizontalOptions="CenterAndExpand"
-                                   Padding="0"
-                                   Margin="35,0,0,0">
-
-                                <StackLayout VerticalOptions="Center">
-
-                                    <Image Source="save.png"
-                                           HeightRequest="30"/>
-
-                                </StackLayout>
-
-                                <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding editarcommand}"/>
-                                </Frame.GestureRecognizers>
-
-                            </Frame>
-                        </StackLayout>
+                            <ImageButton Source="https://i.ibb.co/2g2Yztc/edit.png"
+                                         Grid.Column="1"
+                                         Grid.Row="0"
+                                         BackgroundColor="#0984e3"
+                                         Padding="10"
+                                         CornerRadius="20"
+                                         HeightRequest="70"
+                                         WidthRequest="60"
+                                         HorizontalOptions="CenterAndExpand"
+                                         Command="{Binding editarcommand}"/>
+                            <Label Grid.Column="1"
+                                   Grid.Row="1"
+                                   Text="Editar"
+                                   TextColor="Gray"
+                                   HorizontalTextAlignment="Center"/>
+                        </Grid>
                     </StackLayout>
 
                 </Frame>
@@ -276,6 +256,7 @@
             </StackLayout>
 
             <ValidarInternet:ValidacionesInternet IsVisible="{Binding SinConexion}" VerticalOptions="FillAndExpand" Grid.RowSpan="2"/>
+            <AnimacionCarga:Load IsVisible="{Binding Carga}" VerticalOptions="FillAndExpand" Grid.RowSpan="2"/>
 
         </Grid>
 

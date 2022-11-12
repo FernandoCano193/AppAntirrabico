@@ -9,6 +9,7 @@ using ProyectoAntirrabico.Model;
 using ProyectoAntirrabico.Data;
 using System.Collections.ObjectModel;
 using Xamarin.Forms.Internals;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace ProyectoAntirrabico.ViewModel
 {
@@ -20,6 +21,8 @@ namespace ProyectoAntirrabico.ViewModel
         string IdMP;
 
         ObservableCollection<MMascotasPerdidas> _ListaMP;
+        //List<MMascotasPerdidas> _ListaMP;
+        CollectionView _Lista;
 
         #endregion
         #region CONSTRUCTOR
@@ -34,10 +37,19 @@ namespace ProyectoAntirrabico.ViewModel
         public ObservableCollection<MMascotasPerdidas> ListaMP
         {
             get { return _ListaMP; }
-            set { SetValue(ref _ListaMP, value);
+            set
+            {
+                SetValue(ref _ListaMP, value);
                 OnPropertyChanged();
             }
         }
+        //public List<MMascotasPerdidas> ListaMP
+        //{
+        //    get { return _ListaMP; }
+        //    set { SetValue(ref _ListaMP, value);
+        //        OnPropertyChanged();
+        //    }
+        //}
         #endregion
         #region PROCESOS
         public async Task IrListaMascotasAdopcion()
@@ -49,145 +61,11 @@ namespace ProyectoAntirrabico.ViewModel
         {
             await Navigation.PushAsync(new FormMascotasPerdidas());
         }
-        public async Task Eliminar(MMascotasPerdidas perdidas)
-        {
-            await DisplayAlert("Listo", perdidas.IdMascotaPerdida, "Ok");
-        }
 
         public async Task Editar(MMascotasPerdidas perdidas)
         {
             await Navigation.PushAsync(new EditarMascotasPerdidas(perdidas));
         }
-
-        //public void DibujarMascotaPerdida(MMascotasPerdidas mascota, int index, StackLayout CDerecha, StackLayout CIzquierda)
-        //{
-        //    var _ubicacion = Convert.ToBoolean(index % 2);
-
-        //    var carril = _ubicacion ? CDerecha : CIzquierda;
-
-        //    var FramePadre = new Frame
-        //    {
-        //        BackgroundColor = Color.White,
-        //        HeightRequest = 330,
-        //        CornerRadius = 10,
-        //        Padding = 0,
-        //        HasShadow = false,
-        //        Margin = 10
-        //    };
-
-        //    var StackLayoutPadre = new StackLayout
-        //    {
-
-        //    };
-
-        //    var FrameHijo = new Frame
-        //    {
-        //        Margin = new Thickness(10, 5, 10, 0),
-        //        Padding = 0,
-        //        HasShadow = false,
-        //        CornerRadius = 10,
-        //        HeightRequest = 125,
-        //    };
-
-        //    var FotoMascota = new Image
-        //    {
-        //        Source = mascota.LinkFoto,
-        //        HeightRequest = 125,
-        //        HorizontalOptions = LayoutOptions.Center
-        //    };
-
-        //    var LabelRaza = new Label
-        //    {
-        //        Text = mascota.Raza,
-        //        TextColor = Color.Black,
-        //        FontAttributes = FontAttributes.Bold,
-        //        FontSize = 22,
-        //        HorizontalOptions = LayoutOptions.Center,
-        //        CharacterSpacing = 1
-        //    };
-
-        //    var LabelEdad = new Label
-        //    {
-        //        Text = mascota.Edad,
-        //        TextColor = Color.Gray,
-        //        FontSize = 18,
-        //        HorizontalOptions = LayoutOptions.Center,
-        //    };
-
-        //    var LabelSexo = new Label
-        //    {
-        //        Text = mascota.Sexo,
-        //        TextColor = Color.Gray,
-        //        FontSize = 18,
-        //        HorizontalOptions = LayoutOptions.Center,
-        //        Margin = new Thickness(0, -5, 0, 0)
-        //    };
-
-        //    var LabelArea = new Label
-        //    {
-        //        Text = "Localizado en " + mascota.Area,
-        //        TextColor = Color.Gray,
-        //        FontSize = 15,
-        //        HorizontalOptions = LayoutOptions.Center,
-        //        Margin = new Thickness(0, -5, 0, 0)
-        //    };
-
-        //    var SLBotones = new StackLayout
-        //    {
-        //        Orientation = StackOrientation.Horizontal,
-        //        Margin = new Thickness(10, 10, 10, 10),
-        //        HorizontalOptions = LayoutOptions.Center
-        //    };
-
-        //    var FrameBotonEdit = new Frame
-        //    {
-        //        BackgroundColor = Color.FromHex("#0984e3"),
-        //        HeightRequest = 30,
-        //        Padding = 5,
-        //        CornerRadius = 5,
-        //        Margin = new Thickness(0, 0, 10, 0)
-        //    };
-
-        //    var BotonEdit = new Image
-        //    {
-        //        Source = "https://i.ibb.co/2g2Yztc/edit.png",
-        //        VerticalOptions = LayoutOptions.Center,
-        //        HorizontalOptions = LayoutOptions.Center
-        //    };
-
-        //    var FrameBotonDelete = new Frame
-        //    {
-        //        BackgroundColor = Color.FromHex("#d63031"),
-        //        HeightRequest = 30,
-        //        Padding = 5,
-        //        CornerRadius = 5,
-        //    };
-
-        //    var BotonDelete = new Image
-        //    {
-        //        Source = "https://i.ibb.co/ph9JNn1/delete.png",
-        //        VerticalOptions = LayoutOptions.Center,
-        //        HorizontalOptions = LayoutOptions.Center
-        //    };
-
-        //    //AGRUPACION DE LOS ELEMENTOS
-        //    FrameHijo.Content = FotoMascota;
-        //    StackLayoutPadre.Children.Add(FrameHijo);
-        //    StackLayoutPadre.Children.Add(LabelRaza);
-        //    StackLayoutPadre.Children.Add(LabelEdad);
-        //    StackLayoutPadre.Children.Add(LabelSexo);
-        //    StackLayoutPadre.Children.Add(LabelArea);
-
-        //    FrameBotonDelete.Content = BotonDelete;
-        //    FrameBotonEdit.Content = BotonEdit;
-        //    SLBotones.Children.Add(FrameBotonEdit);
-        //    SLBotones.Children.Add(FrameBotonDelete);
-
-        //    StackLayoutPadre.Children.Add(SLBotones);
-        //    FramePadre.Content = StackLayoutPadre;
-
-        //    carril.Children.Add(FramePadre);
-        //}
 
         public async Task MostrarMascotasPerdidas()
         {
@@ -210,7 +88,6 @@ namespace ProyectoAntirrabico.ViewModel
         public ICommand IrLogincommand => new Command(async () => await IrLogin());
         public ICommand IrFormMPcommand => new Command(async () => await IrFormMascotasPerdidas());
         public ICommand IrEditarCommand => new Command<MMascotasPerdidas>(async (p) => await Editar(p));
-        public ICommand IrEliminar => new Command<MMascotasPerdidas>(async (p) => await Eliminar(p));
         public ICommand btnPerdidocommand => new Command(async () => await btnPerdido());
         #endregion
 

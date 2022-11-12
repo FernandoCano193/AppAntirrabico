@@ -13,6 +13,7 @@ namespace ProyectoAntirrabico.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ListaMascotasPerdidas : ContentPage
     {
+        string ID;
         public ListaMascotasPerdidas()
         {
             InitializeComponent();

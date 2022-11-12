@@ -9,7 +9,7 @@
     <StackLayout BackgroundColor="#F5F5F5">
 
         <StackLayout IsVisible="{Binding Conectado}">
-            
+
             <StackLayout Orientation="Horizontal" VerticalOptions="Start"
                      BackgroundColor="White">
 
@@ -77,7 +77,7 @@
                                                HorizontalOptions="Center"
                                                Aspect="AspectFill"/>
                                     </Frame>
-                                    
+
                                     <Label Text="{Binding Raza}"
                                            TextColor="Black"
                                            FontAttributes="Bold"
@@ -110,36 +110,14 @@
                                     <StackLayout Orientation="Horizontal"
                                              Margin="10" 
                                              HorizontalOptions="Center">
-                                        <Frame BackgroundColor="#0984e3"
-                                           HeightRequest="30"
-                                           Padding="5"
-                                           CornerRadius="5"
-                                           Margin="0,0,10,0">
-                                            <Image Source="https://i.ibb.co/2g2Yztc/edit.png"
-                                               VerticalOptions="Center"
-                                               HorizontalOptions="Center"
-                                            />
 
-                                            <Frame.GestureRecognizers>
-                                                <TapGestureRecognizer Command="{Binding Path=BindingContext.IrEditarCommand, Source={x:Reference lista}}"
-                                                                      CommandParameter="{Binding .}"/>
-                                            </Frame.GestureRecognizers>
-
-                                        </Frame>
-                                        <Frame BackgroundColor="#d63031"
-                                               HeightRequest="30"
-                                               Padding="5"
-                                               CornerRadius="5">
-                                            <Image Source="https://i.ibb.co/ph9JNn1/delete.png"
-                                                   VerticalOptions="Center"
-                                                   HorizontalOptions="Center"/>
-
-                                            <Frame.GestureRecognizers>
-                                                <TapGestureRecognizer Command="{Binding Path=BindingContext.IrEliminar, Source={x:Reference lista}}"
-                                                                      CommandParameter="{Binding .}"/>
-                                            </Frame.GestureRecognizers>
-                                            
-                                        </Frame>
+                                        <Button Text="Detalle mascota"
+                                                BackgroundColor="#F18043"
+                                                CornerRadius="10"
+                                                BorderColor="Gray"
+                                                BorderWidth="2"
+                                                Command="{Binding Path=BindingContext.IrEditarCommand, Source={x:Reference lista}}"
+                                                CommandParameter="{Binding .}"/>
                                     </StackLayout>
 
                                 </StackLayout>
@@ -237,7 +215,7 @@
                     </Image.GestureRecognizers>
                 </Image>
             </Grid>
-            
+
         </StackLayout>
 
         <ValidarInternet:ValidacionesInternet IsVisible="{Binding SinConexion}" VerticalOptions="FillAndExpand"/>

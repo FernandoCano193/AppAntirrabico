@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoAntirrabico.Views.EditarMascotaAdopcion"
              xmlns:ValidacionesInternet="clr-namespace:ProyectoAntirrabico.Views.ValidarInternet"
+             xmlns:Carga="clr-namespace:ProyectoAntirrabico.Views.Carga"
              NavigationPage.HasNavigationBar="False">
 
     <ContentPage.Content>
@@ -14,8 +15,14 @@
                      BackgroundColor="White"
                      Margin="0,0,0,0" IsVisible="true">
 
-                <Image Source="logoAjustado.png"
-                   HeightRequest="140"/>
+                <Image Source="https://i.ibb.co/3FVPHhb/flecha.png"
+                       Margin="15">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding RegresarCommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
+
 
                 <Label Text="Editar mascotas en adopción"
                        VerticalOptions="Center"
@@ -23,22 +30,9 @@
                        HorizontalTextAlignment="Center"
                        FontSize="20"
                        TextColor="Gray"/>
-
-                <Frame HasShadow="False"
-                   BorderColor="#3C4562"
-                   CornerRadius="50"
-                   HorizontalOptions="EndAndExpand"
-                   BackgroundColor="#C4C4C4"
-                   WidthRequest="35"
-                   Padding="0"
-                   Margin="15">
-
-                    <StackLayout VerticalOptions="Center">
-                        <Image Source="user.png"
-                       WidthRequest="25"/>
-                    </StackLayout>
-
-                </Frame>
+                
+                <Image Source="logoAjustado.png"
+                   HeightRequest="140"/>
 
 
             </StackLayout>
@@ -53,12 +47,23 @@
                        Padding="1">
 
                     <StackLayout>
-                        <Image Source="{Binding RecibeParametros.LinkFoto}"
+                        
+                        <Frame Padding="0"
+                               Margin="10"
+                               HeightRequest="140"
+                               WidthRequest="150"
+                               HasShadow="False"
+                               CornerRadius="20"
+                               HorizontalOptions="Center"
+                               BackgroundColor="Transparent">
+
+                            <Image Source="{Binding FotoCelular}"
                                WidthRequest="150"
                                HeightRequest="150"
-                               Margin="0,10,0,0"
                                x:Name="FotoCelular"
-                               Aspect="AspectFit"/>
+                               Aspect="AspectFill"/>
+                        </Frame>
+                        
 
                         <StackLayout Orientation="Horizontal"
                                  HorizontalOptions="CenterAndExpand">
@@ -104,7 +109,7 @@
                                    CornerRadius="2"
                                    Margin="0,3">
                                 <Entry TextColor="Black"
-                                       Text="{Binding RecibeParametros.Nombre}"/>
+                                       Text="{Binding txtNombre}"/>
                             </Frame>
 
                             <Label Grid.Row="1" Grid.Column="0"
@@ -118,7 +123,7 @@
                                     TitleColor="Gray"
                                     TextColor="Black"
                                     FontSize="18"
-                                    SelectedItem="{Binding RecibeParametros.Area}">
+                                    SelectedItem="{Binding SeleccionArea}">
                                 <Picker.ItemsSource>
                                     <x:Array Type="{x:Type x:String}">
                                         <x:String>Tijuana</x:String>
@@ -142,7 +147,7 @@
                                    Margin="0,4">
 
                                 <Entry TextColor="Black"
-                                       Text="{Binding RecibeParametros.Especie}"/>
+                                       Text="{Binding txtEspecie}"/>
                             </Frame>
 
 
@@ -158,7 +163,7 @@
                                     TitleColor="Gray"
                                     TextColor="Black"
                                     FontSize="18"
-                                    SelectedItem="{Binding RecibeParametros.Sexo}">
+                                    SelectedItem="{Binding SeleccionSexo}">
                                 <Picker.ItemsSource>
                                     <x:Array Type="{x:Type x:String}">
                                         <x:String>Macho</x:String>
@@ -181,7 +186,7 @@
                                    Margin="0,0,0,4">
 
                                 <Entry TextColor="Black"
-                                       Text="{Binding RecibeParametros.Edad}"/>
+                                       Text="{Binding txtEdad}"/>
 
                             </Frame>
 
@@ -200,7 +205,7 @@
                                    Margin="0,0,0,4">
 
                                 <Entry TextColor="Black"
-                                       Text="{Binding RecibeParametros.Colores}"/>
+                                       Text="{Binding txtColores}"/>
 
                             </Frame>
 
@@ -218,7 +223,7 @@
                                    Margin="0,0,0,4">
 
                                 <Entry TextColor="Black"
-                                       Text="{Binding RecibeParametros.Raza}"/>
+                                       Text="{Binding txtRaza}"/>
 
                             </Frame>
 
@@ -226,52 +231,41 @@
 
                         </Grid>
 
-                        <StackLayout Orientation="Horizontal" 
-                                     Margin="0,25,0,-40"
-                                     HorizontalOptions="Center">
+                        <Grid ColumnDefinitions="150,150" RowDefinitions="55,55" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand"
+                              Margin="5">
+                            <ImageButton Source="https://i.ibb.co/ph9JNn1/delete.png"
+                                         Grid.Column="0"
+                                         Grid.Row="0"
+                                         BackgroundColor="#d63031"
+                                         Padding="10"
+                                         CornerRadius="20"
+                                         HeightRequest="70"
+                                         WidthRequest="60"
+                                         HorizontalOptions="CenterAndExpand"
+                                         Command="{Binding Eliminarcommand}"/>
+                            <Label Grid.Column="0"
+                                   Grid.Row="1"
+                                   Text="Eliminar"
+                                   TextColor="Gray"
+                                   HorizontalTextAlignment="Center"/>
 
-                            <Frame BackgroundColor="#B22222"
-                                   CornerRadius="40"
-                                   WidthRequest="50"
-                                   HeightRequest="50"
-                                   HorizontalOptions="CenterAndExpand"
-                                   Padding="0"
-                                   Margin="0,0,35,0">
+                            <ImageButton Source="https://i.ibb.co/2g2Yztc/edit.png"
+                                         Grid.Column="1"
+                                         Grid.Row="0"
+                                         BackgroundColor="#0984e3"
+                                         Padding="10"
+                                         CornerRadius="20"
+                                         HeightRequest="70"
+                                         WidthRequest="60"
+                                         HorizontalOptions="CenterAndExpand"
+                                         Command="{Binding Editarcommand}"/>
+                            <Label Grid.Column="1"
+                                   Grid.Row="1"
+                                   Text="Editar"
+                                   TextColor="Gray"
+                                   HorizontalTextAlignment="Center"/>
+                        </Grid>
 
-                                <StackLayout VerticalOptions="Center">
-
-                                    <Image Source="cancel.png"
-                                           HeightRequest="25"/>
-
-                                </StackLayout>
-
-                                <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding Cancelarcommand}"/>
-                                </Frame.GestureRecognizers>
-
-                            </Frame>
-
-                            <Frame BackgroundColor="#2E8B57"
-                                   CornerRadius="40"
-                                   WidthRequest="50"
-                                   HeightRequest="20"
-                                   HorizontalOptions="CenterAndExpand"
-                                   Padding="0"
-                                   Margin="35,0,0,0">
-
-                                <StackLayout VerticalOptions="Center">
-
-                                    <Image Source="save.png"
-                                           HeightRequest="30"/>
-
-                                </StackLayout>
-
-                                <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding Insertarcommand}"/>
-                                </Frame.GestureRecognizers>
-
-                            </Frame>
-                        </StackLayout>
                     </StackLayout>
 
                 </Frame>
@@ -279,6 +273,7 @@
             </StackLayout>
 
             <ValidacionesInternet:ValidacionesInternet IsVisible="{Binding SinConexion}" VerticalOptions="FillAndExpand" Grid.RowSpan="2"/>
+            <Carga:Load IsVisible="{Binding Carga}" VerticalOptions="FillAndExpand" Grid.RowSpan="2"/>
         </Grid>
     </ContentPage.Content>
 

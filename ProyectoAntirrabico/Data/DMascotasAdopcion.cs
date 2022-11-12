@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Firebase.Database;
 using System.Collections.ObjectModel;
 using System.IO;
+using Firebase.Storage;
 
 namespace ProyectoAntirrabico.Data
 {
@@ -33,9 +34,10 @@ namespace ProyectoAntirrabico.Data
                     Especie = parametros.Especie,
                     LinkFoto = parametros.LinkFoto,
                     Raza = parametros.Raza,
-                    Sexo = parametros.Sexo
-                }
-                );
+                    Sexo = parametros.Sexo,
+                    IdMascotaAdopcion = parametros.IdMascotaAdopcion
+                });
+
             IDMascotaA = data.Key;
             return IDMascotaA;
         }
@@ -55,6 +57,7 @@ namespace ProyectoAntirrabico.Data
                     Edad = parametros.Edad,
                     Colores = parametros.Colores,
                     Area = parametros.Area,
+                    IdMascotaAdopcion = data.Key,
                     Especie = parametros.Especie,
                     Nombre = parametros.Nombre,
                     Raza = parametros.Raza,
@@ -96,6 +99,25 @@ namespace ProyectoAntirrabico.Data
             }
 
             return MAdopcion;
+        }
+
+        public async Task EliminarMascotasPerdidas(MMascotasAdopocion mascota)
+        {
+            var MascotaEliminar = (await CConexion.firebase
+                .Child("MascotasAdopcion")
+                .OnceAsync<MMascotasAdopocion>()).Where(a => a.Key == mascota.IdMascotaAdopcion).FirstOrDefault();
+
+            await CConexion.firebase
+                .Child("MascotasAdopcion")
+                .Child(MascotaEliminar.Key).DeleteAsync();
+
+        }
+
+        public async Task EliminarFoto(string nombre)
+        {
+            await new FirebaseStorage("appmascotas-a2b71.appspot.com")
+                .Child("MascotasAdopcion")
+                .Child(nombre).DeleteAsync();
         }
 
         public async Task<string> SubirFotoStorage(Stream FotoStream, string IdMascota)

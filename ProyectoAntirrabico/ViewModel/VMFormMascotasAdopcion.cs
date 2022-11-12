@@ -143,8 +143,17 @@ namespace ProyectoAntirrabico.ViewModel
             parametros.Edad = txtEdad;
             parametros.Colores = txtColores;
             parametros.Raza = txtRaza;
+            parametros.IdMascotaAdopcion = "-";
 
             IDMascotaA = await funcion.InsertarMA(parametros);
+            
+        }
+
+        public async Task EliminarMascota(MMascotasAdopocion mascotas)
+        {
+            var funcion = new DMascotasAdopcion();
+            await funcion.EliminarFoto(mascotas.IdMascotaAdopcion+".jpg");
+            await funcion.EliminarMascotasPerdidas(mascotas);
         }
 
         public async Task SubirImagen()
@@ -178,7 +187,9 @@ namespace ProyectoAntirrabico.ViewModel
             await SubirImagen();
             await EditarFoto();
             Carga = false;
+
             await DisplayAlert("Listo", "Se ha registrado una nueva mascota", "Ok");
+            Limpiar();
         }
 
 
@@ -190,8 +201,7 @@ namespace ProyectoAntirrabico.ViewModel
 
         public void Limpiar()
         {
-            _foto = "https://i.ibb.co/dKMhgbR/picture.png";
-            FotoCelular = null;
+            FotoCelular = "https://i.ibb.co/dKMhgbR/picture.png";
             txtLinkFoto = null;
             SeleccionArea = null;
             txtEspecie = null;
@@ -201,6 +211,8 @@ namespace ProyectoAntirrabico.ViewModel
             txtColores = null;
             txtRaza = null;
         }
+
+
         private async Task AgregarFoto()
         {
             await CrossMedia.Current.Initialize();
